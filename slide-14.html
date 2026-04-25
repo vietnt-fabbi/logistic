@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 14 - Annual Report: Tổng quan</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0; padding: 0;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .slide {
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        transform-origin: center center;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        display: flex;
+        flex-direction: column;
+        padding: 22px 50px 18px;
+    }
+
+    /* Header */
+    .header { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; margin-bottom: 14px; }
+    .header-title { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+    .header-title i { color: #3b82f6; margin-right: 10px; }
+    .header-subtitle { font-size: 14px; color: #64748b; }
+    .header-badge {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        color: #3b82f6;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+    .header-badge .accent { color: #10b981; }
+
+    /* Flow diagram */
+    .flow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-shrink: 0;
+        margin-bottom: 14px;
+    }
+    .flow-step {
+        background: white;
+        border-radius: 12px;
+        padding: 20px 35px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+        text-align: center;
+    }
+    .flow-step--blue { border-top: 3px solid #3b82f6; }
+    .flow-step--green { border-top: 3px solid #10b981; }
+    .flow-step--purple { border-top: 3px solid #9333ea; }
+
+    .flow-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 10px;
+        font-size: 20px;
+    }
+    .flow-icon--blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .flow-icon--green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .flow-icon--purple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+    .flow-name { font-size: 14px; font-weight: 600; color: #1e293b; }
+    .flow-desc { font-size: 12px; color: #64748b; }
+
+    .flow-arrow { color: #3b82f6; font-size: 20px; flex-shrink: 0; }
+    .flow-arrow--green { color: #10b981; }
+
+    /* Body */
+    .body { display: flex; flex-direction: column; gap: 14px; flex: 1; min-height: 0; }
+
+    /* Report cards grid */
+    .report-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        flex-shrink: 0;
+    }
+    .report-card {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+    }
+    .report-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .report-card--blue { border-left: 4px solid #3b82f6; }
+    .report-card--green { border-left: 4px solid #10b981; }
+    .report-card--purple { border-left: 4px solid #9333ea; }
+
+    .report-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .report-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .report-card-icon--blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .report-card-icon--green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .report-card-icon--purple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+    .report-card-name { font-size: 16px; font-weight: 700; color: #1e293b; }
+    .report-card-sub { font-size: 12px; color: #64748b; }
+    .report-card-desc { font-size: 13px; color: #64748b; line-height: 1.5; }
+
+    /* Bottom row: time saving + risk */
+    .bottom-row { display: flex; gap: 16px; flex: 1; min-height: 0; }
+
+    .card {
+        flex: 1;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+    }
+    .card-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .card-title .icon-yellow { color: #f59e0b; }
+    .card-title .icon-blue { color: #3b82f6; }
+
+    /* Time saving comparison */
+    .time-compare { display: flex; align-items: center; gap: 20px; }
+    .time-box { text-align: center; flex: 1; }
+    .time-value-wrap {
+        border-radius: 10px;
+        padding: 14px;
+        margin-bottom: 8px;
+    }
+    .time-value-wrap--red { background: rgba(239, 68, 68, 0.1); }
+    .time-value-wrap--green { background: rgba(16, 185, 129, 0.1); }
+    .time-value { font-size: 28px; font-weight: 800; }
+    .time-value--red { color: #ef4444; }
+    .time-value--green { color: #10b981; }
+    .time-label { font-size: 12px; font-weight: 600; }
+    .time-label--red { color: #ef4444; }
+    .time-label--green { color: #10b981; }
+
+    .time-arrow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .time-arrow i { color: #10b981; font-size: 24px; }
+    .time-arrow-pct { font-size: 10px; color: #10b981; font-weight: 600; margin-top: 4px; }
+
+    /* Risk reduction list */
+    .risk-list { display: flex; flex-direction: column; gap: 10px; }
+    .risk-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        background: rgba(16, 185, 129, 0.05);
+        border-radius: 8px;
+        font-size: 13px;
+        color: #1e293b;
+    }
+    .risk-item i { color: #10b981; }
+
+    /* Footer */
+    .footer { flex-shrink: 0; margin-top: 12px; }
+    .footer-info { font-size: 13px; color: #64748b; }
+    .footer-info i { margin-right: 8px; color: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <div class="header-title"><i class="fas fa-file-contract"></i>Annual Report: Tổng quan</div>
+            <div class="header-subtitle">Báo cáo quyết toán hải quan — đúng mẫu, đúng hạn</div>
+        </div>
+        <div class="header-badge">Module: <span class="accent">Annual Report</span></div>
+    </div>
+
+    <!-- Flow: Hệ thống → Export → HQ -->
+    <div class="flow">
+        <div class="flow-step flow-step--blue">
+            <div class="flow-icon flow-icon--blue"><i class="fas fa-database"></i></div>
+            <div class="flow-name">Hệ thống</div>
+            <div class="flow-desc">Dữ liệu đã xử lý</div>
+        </div>
+        <i class="fas fa-arrow-right flow-arrow"></i>
+        <div class="flow-step flow-step--green">
+            <div class="flow-icon flow-icon--green"><i class="fas fa-file-export"></i></div>
+            <div class="flow-name">Export file</div>
+            <div class="flow-desc">Đúng mẫu hải quan</div>
+        </div>
+        <i class="fas fa-arrow-right flow-arrow flow-arrow--green"></i>
+        <div class="flow-step flow-step--purple">
+            <div class="flow-icon flow-icon--purple"><i class="fas fa-landmark"></i></div>
+            <div class="flow-name">Hệ thống HQ</div>
+            <div class="flow-desc">Import trực tiếp</div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="body">
+
+        <!-- 3 Report Cards -->
+        <div class="report-cards">
+            <div class="report-card report-card--blue">
+                <div class="report-card-header">
+                    <div class="report-card-icon report-card-icon--blue"><i class="fas fa-boxes"></i></div>
+                    <div>
+                        <div class="report-card-name">Mẫu 15</div>
+                        <div class="report-card-sub">Quyết toán NVL</div>
+                    </div>
+                </div>
+                <div class="report-card-desc">Báo cáo tổng hợp nhập–xuất–tồn nguyên vật liệu theo kỳ</div>
+            </div>
+            <div class="report-card report-card--green">
+                <div class="report-card-header">
+                    <div class="report-card-icon report-card-icon--green"><i class="fas fa-cube"></i></div>
+                    <div>
+                        <div class="report-card-name">Mẫu 15A</div>
+                        <div class="report-card-sub">Quyết toán thành phẩm</div>
+                    </div>
+                </div>
+                <div class="report-card-desc">Báo cáo tổng hợp nhập–xuất–tồn thành phẩm theo kỳ</div>
+            </div>
+            <div class="report-card report-card--purple">
+                <div class="report-card-header">
+                    <div class="report-card-icon report-card-icon--purple"><i class="fas fa-clipboard-list"></i></div>
+                    <div>
+                        <div class="report-card-name">Mẫu 16</div>
+                        <div class="report-card-sub">Định mức thực tế</div>
+                    </div>
+                </div>
+                <div class="report-card-desc">Báo cáo định mức sản xuất thực tế, liên kết Actual BOM</div>
+            </div>
+        </div>
+
+        <!-- Time saving + Risk reduction -->
+        <div class="bottom-row">
+            <div class="card">
+                <div class="card-title"><i class="fas fa-clock icon-yellow"></i>Tiết kiệm thời gian</div>
+                <div class="time-compare">
+                    <div class="time-box">
+                        <div class="time-value-wrap time-value-wrap--red">
+                            <div class="time-value time-value--red">5 ngày</div>
+                        </div>
+                        <div class="time-label time-label--red">Thủ công</div>
+                    </div>
+                    <div class="time-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                        <div class="time-arrow-pct">-99%</div>
+                    </div>
+                    <div class="time-box">
+                        <div class="time-value-wrap time-value-wrap--green">
+                            <div class="time-value time-value--green">5 phút</div>
+                        </div>
+                        <div class="time-label time-label--green">Tự động</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-title"><i class="fas fa-shield-alt icon-blue"></i>Giảm rủi ro</div>
+                <div class="risk-list">
+                    <div class="risk-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Giảm sai sót nhập liệu thủ công</span>
+                    </div>
+                    <div class="risk-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Đúng mẫu hải quan quy định</span>
+                    </div>
+                    <div class="risk-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Import trực tiếp lên hệ thống HQ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-info">
+            <i class="fas fa-info-circle"></i>
+            Xuất báo cáo đúng mẫu hải quan — import trực tiếp, tiết kiệm từ 5 ngày xuống 5 phút
+        </div>
+    </div>
+
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 25 - Liên hệ & Bước tiếp theo</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        margin: 0; padding: 0; overflow: hidden;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .slide {
+        width: 1280px; height: 720px;
+        display: flex; flex-direction: column;
+        padding: 22px 50px 18px;
+        background: linear-gradient(135deg, #0A3D62 0%, #1A5276 100%);
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
+        overflow: hidden;
+        transform-origin: center center;
+    }
+
+    /* --- Glass card --- */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .gradient-text {
+        background: linear-gradient(90deg, #FFFFFF 0%, #E8F4FD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .pulse-dot { animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+    /* --- Header --- */
+    .slide__header {
+        flex-shrink: 0;
+        margin-bottom: 18px;
+    }
+    .header__brand {
+        display: flex; align-items: center; gap: 15px;
+        margin-bottom: 10px;
+    }
+    .header__logo {
+        width: 50px; height: 50px;
+        background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+        border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .header__logo i { color: white; font-size: 24px; }
+    .header__logo-img { height: 50px; width: auto; flex-shrink: 0; background: white; border-radius: 8px; padding: 4px 8px; }
+    .header__label { font-size: 14px; color: #B8D4E8; font-weight: 500; }
+    .header__name { font-size: 18px; color: white; font-weight: 700; }
+    .header__title { font-size: 42px; font-weight: 800; margin-bottom: 8px; }
+    .header__subtitle { font-size: 16px; color: #B8D4E8; line-height: 1.5; }
+
+    /* --- Body --- */
+    .slide__body {
+        flex: 1; min-height: 0;
+        display: flex; flex-direction: column;
+        gap: 20px;
+    }
+
+    /* --- CTA cards grid --- */
+    .cta-grid {
+        display: flex; gap: 25px;
+    }
+    .cta-card {
+        flex: 1; padding: 28px; text-align: center;
+    }
+    .cta-card__icon {
+        width: 60px; height: 60px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        margin: 0 auto 18px;
+    }
+    .cta-card__icon i { color: white; font-size: 24px; }
+    .cta-card__icon--blue { background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%); }
+    .cta-card__icon--green { background: linear-gradient(135deg, #2ECC71 0%, #27AE60 100%); }
+    .cta-card__icon--yellow { background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%); }
+
+    .cta-card__title {
+        font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px;
+    }
+    .cta-card__desc {
+        font-size: 13px; color: #B8D4E8; line-height: 1.5; margin-bottom: 18px;
+    }
+    .cta-card__btn {
+        border-radius: 8px; padding: 10px 20px;
+        font-size: 13px; color: white; font-weight: 600;
+        display: inline-flex; align-items: center; gap: 6px;
+    }
+    .cta-card__btn--blue {
+        background: rgba(52, 152, 219, 0.3); border: 1px solid rgba(52, 152, 219, 0.4);
+    }
+    .cta-card__btn--green {
+        background: rgba(46, 204, 113, 0.3); border: 1px solid rgba(46, 204, 113, 0.4);
+    }
+    .cta-card__btn--yellow {
+        background: rgba(243, 156, 18, 0.3); border: 1px solid rgba(243, 156, 18, 0.4);
+    }
+
+    /* --- Contact bar --- */
+    .contact-bar {
+        padding: 22px 35px;
+    }
+    .contact-bar__inner {
+        display: flex; align-items: center; justify-content: space-between;
+    }
+    .contact-bar__items {
+        display: flex; align-items: center; gap: 30px;
+    }
+    .contact-item {
+        display: flex; align-items: center; gap: 12px;
+    }
+    .contact-item__icon {
+        width: 36px; height: 36px; border-radius: 8px;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .contact-item__icon--blue { background: rgba(52, 152, 219, 0.2); }
+    .contact-item__icon--blue i { color: #3498DB; font-size: 16px; }
+    .contact-item__icon--green { background: rgba(46, 204, 113, 0.2); }
+    .contact-item__icon--green i { color: #2ECC71; font-size: 16px; }
+    .contact-item__icon--yellow { background: rgba(243, 156, 18, 0.2); }
+    .contact-item__icon--yellow i { color: #F39C12; font-size: 16px; }
+    .contact-item__label { font-size: 11px; color: #B8D4E8; }
+    .contact-item__value { font-size: 14px; color: white; font-weight: 600; }
+
+    .contact-divider {
+        width: 1px; height: 35px; background: rgba(255, 255, 255, 0.15);
+    }
+
+    .status-badge {
+        display: flex; align-items: center; gap: 10px;
+        background: rgba(46, 204, 113, 0.2);
+        border: 1px solid rgba(46, 204, 113, 0.3);
+        border-radius: 20px; padding: 8px 16px;
+    }
+    .status-badge__dot {
+        width: 8px; height: 8px; background: #2ECC71; border-radius: 50%;
+    }
+    .status-badge__text { font-size: 12px; color: white; font-weight: 500; }
+
+    /* --- Footer --- */
+    .slide__footer {
+        flex-shrink: 0;
+        display: flex; justify-content: space-between; align-items: center;
+        padding-top: 14px;
+    }
+    .footer__stats {
+        display: flex; gap: 40px;
+    }
+    .footer__stat { text-align: center; }
+    .footer__stat-value { font-size: 24px; font-weight: 700; color: white; }
+    .footer__stat-label { font-size: 11px; color: #B8D4E8; }
+
+    .footer__meta {
+        display: flex; align-items: center; gap: 15px;
+    }
+    .footer__meta-item { font-size: 13px; color: #B8D4E8; }
+    .footer__meta-item i { margin-right: 8px; }
+    .footer__meta-divider {
+        width: 1px; height: 25px; background: rgba(255, 255, 255, 0.2);
+    }
+</style>
+</head>
+<body>
+<div class="slide">
+    <!-- Header -->
+    <div class="slide__header">
+        <div class="header__brand">
+            <img class="header__logo-img" src="images/ken-logo.png" alt="Ken Logistics" />
+            <div>
+                <div class="header__label">LOGISTICS SOLUTION</div>
+                <div class="header__name">CUSTOMS CLEARANCE</div>
+            </div>
+        </div>
+        <div class="header__title"><span class="gradient-text">Bước tiếp theo</span></div>
+        <div class="header__subtitle">Hãy trải nghiệm giải pháp quản lý quyết toán hải quan tự động</div>
+    </div>
+
+    <!-- Body -->
+    <div class="slide__body">
+        <!-- 3 CTA Cards -->
+        <div class="cta-grid">
+            <!-- Demo -->
+            <div class="glass-card cta-card">
+                <div class="cta-card__icon cta-card__icon--blue"><i class="fas fa-desktop"></i></div>
+                <div class="cta-card__title">Demo trực tiếp</div>
+                <div class="cta-card__desc">Xem hệ thống hoạt động thực tế với dữ liệu mẫu</div>
+                <div class="cta-card__btn cta-card__btn--blue"><i class="fas fa-play-circle"></i> Đặt lịch demo</div>
+            </div>
+            <!-- Pilot -->
+            <div class="glass-card cta-card">
+                <div class="cta-card__icon cta-card__icon--green"><i class="fas fa-rocket"></i></div>
+                <div class="cta-card__title">Pilot miễn phí</div>
+                <div class="cta-card__desc">Dùng thử với dữ liệu thực của doanh nghiệp bạn</div>
+                <div class="cta-card__btn cta-card__btn--green"><i class="fas fa-paper-plane"></i> Đăng ký pilot</div>
+            </div>
+            <!-- Meeting -->
+            <div class="glass-card cta-card">
+                <div class="cta-card__icon cta-card__icon--yellow"><i class="fas fa-handshake"></i></div>
+                <div class="cta-card__title">Meeting chi tiết</div>
+                <div class="cta-card__desc">Trao đổi giải pháp phù hợp cho doanh nghiệp</div>
+                <div class="cta-card__btn cta-card__btn--yellow"><i class="fas fa-calendar-check"></i> Đặt lịch họp</div>
+            </div>
+        </div>
+
+        <!-- Contact bar -->
+        <div class="glass-card contact-bar">
+            <div class="contact-bar__inner">
+                <div class="contact-bar__items">
+                    <div class="contact-item">
+                        <div class="contact-item__icon contact-item__icon--blue"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="contact-item__label">Email</div>
+                            <div class="contact-item__value">bdteam@kenlogis.vn</div>
+                        </div>
+                    </div>
+                    <div class="contact-divider"></div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon contact-item__icon--green"><i class="fas fa-phone-alt"></i></div>
+                        <div>
+                            <div class="contact-item__label">Hotline</div>
+                            <div class="contact-item__value">+84 24 3768 0066</div>
+                        </div>
+                    </div>
+                    <div class="contact-divider"></div>
+                    <div class="contact-item">
+                        <div class="contact-item__icon contact-item__icon--yellow"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <div class="contact-item__label">Website</div>
+                            <div class="contact-item__value">https://kenlogis.vn/</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="status-badge">
+                    <div class="status-badge__dot pulse-dot"></div>
+                    <span class="status-badge__text">Sẵn sàng hỗ trợ</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide__footer">
+        <div class="footer__stats">
+            <div class="footer__stat">
+                <div class="footer__stat-value">500+</div>
+                <div class="footer__stat-label">Doanh nghiệp</div>
+            </div>
+            <div class="footer__stat">
+                <div class="footer__stat-value">99.9%</div>
+                <div class="footer__stat-label">Độ chính xác</div>
+            </div>
+            <div class="footer__stat">
+                <div class="footer__stat-value">24/7</div>
+                <div class="footer__stat-label">Hỗ trợ</div>
+            </div>
+        </div>
+        <div class="footer__meta">
+            <div class="footer__meta-item"><i class="fas fa-building"></i>KEN Logistics</div>
+        </div>
+    </div>
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

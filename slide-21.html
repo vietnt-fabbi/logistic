@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 21 - Unit Price Report</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        margin: 0; padding: 0; overflow: hidden;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+    .slide { width: 1280px; height: 720px; display: flex; flex-direction: column; padding: 22px 50px 18px; box-sizing: border-box; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+        transform-origin: center center; }
+
+    /* Header */
+    .slide__header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .slide__title { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+    .slide__title-icon { color: #9333ea; margin-right: 10px; }
+    .slide__subtitle { font-size: 14px; color: #64748b; }
+    .slide__badge { background: rgba(147, 51, 234, 0.1); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px; padding: 8px 16px; font-size: 12px; color: #9333ea; font-weight: 600; }
+    .slide__badge i { margin-right: 4px; }
+
+    /* Risk callout */
+    .risk-callout { flex-shrink: 0; background: rgba(147, 51, 234, 0.05); border: 1px solid rgba(147, 51, 234, 0.2); border-radius: 10px; padding: 14px 20px; display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .risk-callout__icon { width: 36px; height: 36px; background: rgba(147, 51, 234, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #9333ea; font-size: 16px; }
+    .risk-callout__text { font-size: 13px; color: #1e293b; }
+    .risk-callout__label { color: #9333ea; }
+
+    /* Body */
+    .slide__body { flex: 1; min-height: 0; display: flex; gap: 20px; }
+
+    /* Table panel */
+    .table-panel { flex: 1.5; background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+    .table-panel__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; flex-shrink: 0; }
+    .table-panel__title { font-size: 14px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 8px; }
+    .table-panel__title-icon { color: #9333ea; }
+    .btn--export { background: #9333ea; color: white; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; }
+    .btn--export i { margin-right: 4px; }
+
+    /* Data table */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .data-table th { background: #f1f5f9; color: #1e293b; font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 2px solid #e2e8f0; }
+    .data-table th--right { text-align: right; }
+    .data-table th--center { text-align: center; }
+    .data-table td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    .data-table td--right { text-align: right; }
+    .data-table td--center { text-align: center; }
+    .data-table td--bold-purple { font-weight: 600; color: #9333ea; }
+    .data-table td--bold-blue { font-weight: 600; color: #3b82f6; }
+    .data-table td--danger { text-align: right; color: #ef4444; font-weight: 600; }
+    .data-table td--warning { text-align: right; color: #f59e0b; font-weight: 600; }
+    .row-purple { background: rgba(147, 51, 234, 0.05); }
+    .badge-danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+    .badge-warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+
+    /* Sidebar */
+    .sidebar { flex: 0.8; display: flex; flex-direction: column; gap: 15px; }
+    .chart-panel { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+    .chart-panel__title { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .chart-panel__title-icon { color: #9333ea; }
+
+    /* Progress bars */
+    .progress-list { display: flex; flex-direction: column; gap: 12px; }
+    .progress-item__header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .progress-item__name { font-size: 11px; color: #64748b; }
+    .progress-item__pct { font-size: 11px; font-weight: 600; }
+    .progress-item__pct--red { color: #ef4444; }
+    .progress-item__pct--amber { color: #f59e0b; }
+    .progress-item__pct--green { color: #10b981; }
+    .progress-item__track { height: 8px; background: #e2e8f0; border-radius: 4px; }
+    .progress-item__fill { height: 100%; border-radius: 4px; }
+    .progress-item__fill--red { background: #ef4444; }
+    .progress-item__fill--amber { background: #f59e0b; }
+    .progress-item__fill--green { background: #10b981; }
+
+    /* Threshold tip */
+    .threshold-tip { background: rgba(147, 51, 234, 0.05); border: 1px solid rgba(147, 51, 234, 0.2); border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 10px; }
+    .threshold-tip__icon { color: #9333ea; }
+    .threshold-tip__text { font-size: 12px; color: #1e293b; line-height: 1.4; }
+
+    /* Footer */
+    .screenshot-frame { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; flex: 1; min-height: 0; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block; }
+
+    .slide__footer { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; }
+    .screenshot-frame { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; flex: 1; min-height: 0; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block; }
+
+    .slide__footer-text { font-size: 13px; color: #64748b; }
+    .screenshot-frame { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; flex: 1; min-height: 0; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block; }
+
+    .slide__footer-icon { margin-right: 8px; color: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="slide">
+    <!-- Header -->
+    <div class="slide__header">
+        <div>
+            <div class="slide__title">
+                <i class="fas fa-dollar-sign slide__title-icon"></i>Unit Price Report
+            </div>
+            <div class="slide__subtitle">Phát hiện mã hàng khai báo với nhiều đơn giá khác nhau</div>
+        </div>
+        <div class="slide__badge"><i class="fas fa-exclamation-circle"></i>12 issues</div>
+    </div>
+
+    <!-- Risk Callout -->
+    <div class="risk-callout">
+        <div class="risk-callout__icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="risk-callout__text"><strong class="risk-callout__label">Rủi ro:</strong> Chênh lệch giá → nghi vấn chuyển giá hoặc gian lận thuế</div>
+    </div>
+
+    <!-- Body -->
+    <div class="slide__body">
+        <!-- Table -->
+        <div class="table-panel">
+            <div class="table-panel__header">
+                <div class="table-panel__title">
+                    <i class="fas fa-table table-panel__title-icon"></i>Danh sách chênh lệch giá
+                </div>
+            </div>
+            <div class="screenshot-frame">
+                <img src="images/slide-21 - Unit Price Report.jpg" alt="Unit Price Report" />
+            </div>
+        </div>
+
+        <!-- Price Chart Sidebar -->
+        <div class="sidebar">
+            <div class="chart-panel">
+                <div class="chart-panel__title">
+                    <i class="fas fa-chart-bar chart-panel__title-icon"></i>Biến động giá
+                </div>
+                <div class="progress-list">
+                    <div class="progress-item">
+                        <div class="progress-item__header">
+                            <span class="progress-item__name">ECUS-0125</span>
+                            <span class="progress-item__pct progress-item__pct--red">81%</span>
+                        </div>
+                        <div class="progress-item__track"><div class="progress-item__fill progress-item__fill--red" style="width: 81%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-item__header">
+                            <span class="progress-item__name">ECUS-0342</span>
+                            <span class="progress-item__pct progress-item__pct--red">68%</span>
+                        </div>
+                        <div class="progress-item__track"><div class="progress-item__fill progress-item__fill--red" style="width: 68%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-item__header">
+                            <span class="progress-item__name">ECUS-0721</span>
+                            <span class="progress-item__pct progress-item__pct--red">68%</span>
+                        </div>
+                        <div class="progress-item__track"><div class="progress-item__fill progress-item__fill--red" style="width: 68%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-item__header">
+                            <span class="progress-item__name">ECUS-0518</span>
+                            <span class="progress-item__pct progress-item__pct--amber">18%</span>
+                        </div>
+                        <div class="progress-item__track"><div class="progress-item__fill progress-item__fill--amber" style="width: 18%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-item__header">
+                            <span class="progress-item__name">ECUS-0899</span>
+                            <span class="progress-item__pct progress-item__pct--green">9%</span>
+                        </div>
+                        <div class="progress-item__track"><div class="progress-item__fill progress-item__fill--green" style="width: 9%"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="threshold-tip">
+                <i class="fas fa-lightbulb threshold-tip__icon"></i>
+                <div class="threshold-tip__text"><strong>Ngưỡng:</strong> Chênh lệch > 30% → Bất thường</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide__footer">
+        <div class="slide__footer-text"><i class="fas fa-info-circle slide__footer-icon"></i>Phát hiện chênh lệch đơn giá — rủi ro nghi vấn chuyển giá</div>
+    </div>
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sản Phẩm Logistics Xuất Nhập Khẩu Hải Quan — Presentation</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; font-family: 'Montserrat', sans-serif; }
+
+    /* Slide viewport */
+    #presentation { position: relative; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
+    #slide-frame { border: none; width: 1280px; height: 720px; transform-origin: center center; background: #f8fafc; }
+
+    /* Controls overlay */
+    #controls { position: fixed; bottom: 0; left: 0; right: 0; height: 56px; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; gap: 16px; z-index: 100; opacity: 0; transition: opacity 0.3s ease; }
+    #controls:hover, #controls.visible { opacity: 1; }
+    #controls.always-visible { opacity: 1; }
+
+    .ctrl-btn { width: 40px; height: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .ctrl-btn:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); }
+    .ctrl-btn:active { transform: scale(0.92); }
+    .ctrl-btn.disabled { opacity: 0.3; pointer-events: none; }
+
+    #slide-counter { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 600; min-width: 80px; text-align: center; user-select: none; }
+
+    /* Progress bar */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: #3b82f6; z-index: 101; transition: width 0.3s ease; }
+
+    /* Slide list panel */
+    #slide-list { position: fixed; left: 0; top: 0; bottom: 56px; width: 220px; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); z-index: 99; transform: translateX(-100%); transition: transform 0.3s ease; overflow-y: auto; padding: 15px 10px; }
+    #slide-list.open { transform: translateX(0); }
+    #slide-list::-webkit-scrollbar { width: 4px; }
+    #slide-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+
+    .slide-thumb { padding: 10px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 4px; transition: all 0.2s; border: 1px solid transparent; }
+    .slide-thumb:hover { background: rgba(255,255,255,0.08); }
+    .slide-thumb.active { background: rgba(59, 130, 246, 0.2); border-color: rgba(59, 130, 246, 0.4); }
+    .slide-thumb .thumb-num { font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 2px; }
+    .slide-thumb .thumb-title { font-size: 12px; color: rgba(255,255,255,0.8); font-weight: 500; line-height: 1.3; }
+    .slide-thumb.active .thumb-title { color: #60a5fa; }
+
+    /* Fullscreen hint */
+    #fs-hint { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); color: white; padding: 30px 50px; border-radius: 16px; text-align: center; z-index: 200; border: 1px solid rgba(255,255,255,0.1); transition: opacity 0.5s; }
+    #fs-hint.hidden { opacity: 0; pointer-events: none; }
+    #fs-hint h3 { font-size: 18px; margin-bottom: 12px; font-weight: 700; }
+    #fs-hint p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+    #fs-hint .keys { display: flex; gap: 20px; justify-content: center; margin-top: 15px; }
+    #fs-hint .key { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 6px; font-size: 12px; color: rgba(255,255,255,0.7); }
+
+    /* Transition */
+    #slide-frame { transition: opacity 0.25s ease; }
+    #slide-frame.fade-out { opacity: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<div id="presentation">
+    <iframe id="slide-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+</div>
+
+<div id="controls" class="always-visible">
+    <button class="ctrl-btn" id="btn-list" title="Danh sách slide (L)"><i class="fas fa-list"></i></button>
+    <button class="ctrl-btn" id="btn-first" title="Slide đầu (Home)"><i class="fas fa-step-backward"></i></button>
+    <button class="ctrl-btn" id="btn-prev" title="Slide trước (←)"><i class="fas fa-chevron-left"></i></button>
+    <div id="slide-counter">1 / 25</div>
+    <button class="ctrl-btn" id="btn-next" title="Slide sau (→)"><i class="fas fa-chevron-right"></i></button>
+    <button class="ctrl-btn" id="btn-last" title="Slide cuối (End)"><i class="fas fa-step-forward"></i></button>
+    <button class="ctrl-btn" id="btn-fs" title="Toàn màn hình (F)"><i class="fas fa-expand"></i></button>
+</div>
+
+<div id="slide-list"></div>
+
+<div id="fs-hint" class="hidden">
+    <h3>Presentation Mode</h3>
+    <p>Sử dụng phím tắt để điều hướng</p>
+    <div class="keys">
+        <span class="key">← → hoặc Space</span>
+        <span class="key">F = Fullscreen</span>
+        <span class="key">L = Slide list</span>
+        <span class="key">Esc = Thoát</span>
+    </div>
+</div>
+
+<script>
+const slides = [
+    { file: 'slide-1.html', title: 'Cover' },
+    { file: 'slide-2.html', title: 'Bài toán doanh nghiệp XNK' },
+    { file: 'slide-3.html', title: 'Giải pháp tổng quan' },
+    { file: 'slide-4.html', title: 'Dashboard: Tổng quan' },
+    { file: 'slide-5.html', title: 'Dashboard: KPIs' },
+    { file: 'slide-6.html', title: 'Dashboard: Export & Lưu trữ' },
+    { file: 'slide-7.html', title: 'Upload ERP: Tổng quan' },
+    { file: 'slide-8.html', title: 'ERP Summary' },
+    { file: 'slide-9.html', title: 'ERP Daily' },
+    { file: 'slide-10.html', title: 'ERP BOM' },
+    { file: 'slide-11.html', title: 'Mapping động: USP' },
+    { file: 'slide-12.html', title: 'Actual BOM: Tổng quan' },
+    { file: 'slide-13.html', title: 'Actual BOM: So sánh' },
+    { file: 'slide-14.html', title: 'Annual Report: Tổng quan' },
+    { file: 'slide-15.html', title: 'Mẫu 15: NVL' },
+    { file: 'slide-16.html', title: 'Mẫu 15A: Thành phẩm' },
+    { file: 'slide-17.html', title: 'Mẫu 16: Định mức' },
+    { file: 'slide-18.html', title: 'Issue Report: Tổng quan' },
+    { file: 'slide-19.html', title: 'HS Code Report' },
+    { file: 'slide-20.html', title: 'Unit Report' },
+    { file: 'slide-21.html', title: 'Unit Price Report' },
+    { file: 'slide-22.html', title: 'BOM Report' },
+    { file: 'slide-23.html', title: 'Production Issue' },
+    { file: 'slide-24.html', title: 'Tổng hợp lợi ích' },
+    { file: 'slide-25.html', title: 'Liên hệ & Bước tiếp theo' },
+];
+
+let current = 0;
+const total = slides.length;
+const frame = document.getElementById('slide-frame');
+const counter = document.getElementById('slide-counter');
+const progressBar = document.getElementById('progress-bar');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+const btnFirst = document.getElementById('btn-first');
+const btnLast = document.getElementById('btn-last');
+const btnFs = document.getElementById('btn-fs');
+const btnList = document.getElementById('btn-list');
+const slideList = document.getElementById('slide-list');
+const fsHint = document.getElementById('fs-hint');
+const controls = document.getElementById('controls');
+
+// Build slide list
+slides.forEach((s, i) => {
+    const div = document.createElement('div');
+    div.className = 'slide-thumb' + (i === 0 ? ' active' : '');
+    div.innerHTML = `<div class="thumb-num">Slide ${i + 1}</div><div class="thumb-title">${s.title}</div>`;
+    div.addEventListener('click', () => { goTo(i); slideList.classList.remove('open'); });
+    slideList.appendChild(div);
+});
+
+function updateScale() {
+    const vw = window.innerWidth;
+    const vh = window.innerHeight - 56; // minus controls
+    const scaleX = vw / 1280;
+    const scaleY = vh / 720;
+    const scale = Math.min(scaleX, scaleY);
+    frame.style.transform = `scale(${scale})`;
+}
+
+function goTo(index) {
+    if (index < 0 || index >= total) return;
+    frame.classList.add('fade-out');
+    setTimeout(() => {
+        current = index;
+        frame.src = slides[current].file;
+        counter.textContent = `${current + 1} / ${total}`;
+        progressBar.style.width = `${((current + 1) / total) * 100}%`;
+        btnPrev.classList.toggle('disabled', current === 0);
+        btnFirst.classList.toggle('disabled', current === 0);
+        btnNext.classList.toggle('disabled', current === total - 1);
+        btnLast.classList.toggle('disabled', current === total - 1);
+        // Update list
+        document.querySelectorAll('.slide-thumb').forEach((el, i) => {
+            el.classList.toggle('active', i === current);
+            if (i === current) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        });
+        frame.classList.remove('fade-out');
+    }, 200);
+}
+
+function next() { goTo(current + 1); }
+function prev() { goTo(current - 1); }
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+        document.exitFullscreen();
+    }
+}
+
+function toggleList() {
+    slideList.classList.toggle('open');
+}
+
+// Controls
+btnPrev.addEventListener('click', prev);
+btnNext.addEventListener('click', next);
+btnFirst.addEventListener('click', () => goTo(0));
+btnLast.addEventListener('click', () => goTo(total - 1));
+btnFs.addEventListener('click', toggleFullscreen);
+btnList.addEventListener('click', toggleList);
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+    else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+    else if (e.key === 'l' || e.key === 'L') { toggleList(); }
+    else if (e.key === 'Escape') { slideList.classList.remove('open'); }
+});
+
+// Mouse: hide controls after idle
+let hideTimer;
+function showControls() {
+    controls.classList.add('always-visible');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+        if (document.fullscreenElement) controls.classList.remove('always-visible');
+    }, 3000);
+}
+document.addEventListener('mousemove', showControls);
+
+// Fullscreen change
+document.addEventListener('fullscreenchange', () => {
+    const isFs = !!document.fullscreenElement;
+    btnFs.innerHTML = isFs ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+    if (!isFs) controls.classList.add('always-visible');
+    updateScale();
+});
+
+// Resize
+window.addEventListener('resize', updateScale);
+
+// Show hint briefly on load
+setTimeout(() => { fsHint.classList.remove('hidden'); }, 500);
+setTimeout(() => { fsHint.classList.add('hidden'); }, 4000);
+
+// Init
+updateScale();
+goTo(0);
+</script>
+
+</body>
+</html>

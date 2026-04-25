@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 8 - ERP Summary: Dữ liệu tổng hợp</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        margin: 0; padding: 0; overflow: hidden;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .slide {
+        width: 1280px; height: 720px;
+        display: flex; flex-direction: column;
+        padding: 22px 50px 18px;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+        transform-origin: center center; box-sizing: border-box;
+    }
+
+    /* Header */
+    .slide__header { flex-shrink: 0; margin-bottom: 12px; }
+    .slide__header-row { display: flex; align-items: center; justify-content: space-between; }
+    .slide__title { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 5px; }
+    .slide__title-icon { color: #3b82f6; margin-right: 10px; }
+    .slide__subtitle { font-size: 14px; color: #64748b; }
+    .slide__module-badge {
+        background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 8px; padding: 8px 16px; font-size: 12px; color: #3b82f6; font-weight: 600;
+    }
+    .slide__module-badge--value { color: #10b981; }
+
+    /* Body */
+    .slide__body { flex: 1; min-height: 0; display: flex; gap: 18px; }
+
+    /* Left column */
+    .content-left { flex: 1.15; display: flex; flex-direction: column; gap: 10px; }
+    .screenshot-panel {
+        background: white; border-radius: 12px; padding: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+        flex: 1; min-height: 0; display: flex; flex-direction: column;
+    }
+    .screenshot-panel__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .screenshot-panel__title { font-size: 14px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 8px; }
+    .screenshot-panel__tags { display: flex; gap: 6px; }
+    .tag {
+        padding: 3px 8px; border-radius: 4px; font-size: 10px; font-weight: 600;
+    }
+    .tag--blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .tag--green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .tag--purple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+    .screenshot-panel__img {
+        border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;
+        flex: 1; min-height: 0;
+    }
+    .screenshot-panel__img img { width: 100%; height: auto; display: block; }
+
+    /* Benefit callout */
+    .benefit-callout {
+        background: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 10px; padding: 12px 15px;
+        display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    }
+    .benefit-callout__icon {
+        width: 30px; height: 30px; background: rgba(59, 130, 246, 0.1);
+        border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .benefit-callout__text { font-size: 12px; color: #1e293b; line-height: 1.4; }
+
+    /* Right column */
+    .content-right { flex: 0.85; display: flex; flex-direction: column; gap: 12px; }
+    .flow-label { display: flex; align-items: center; gap: 8px; padding: 0 4px; flex-shrink: 0; }
+    .flow-label__text { font-size: 13px; font-weight: 600; color: #1e293b; }
+
+    /* Step cards 2x2 grid */
+    .steps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; min-height: 0; }
+    .step-card {
+        background: white; border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+        overflow: hidden; transition: all 0.3s ease;
+        position: relative; display: flex; flex-direction: column;
+    }
+    .step-card:hover { box-shadow: 0 6px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .step-num {
+        position: absolute; top: 8px; left: 8px;
+        width: 22px; height: 22px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 11px; font-weight: 700; color: white; z-index: 2;
+    }
+    .step-num--blue { background: #3b82f6; }
+    .step-num--green { background: #10b981; }
+    .step-num--amber { background: #f59e0b; }
+    .step-num--purple { background: #9333ea; }
+    .step-card__img { height: 120px; overflow: hidden; }
+    .step-card__img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .step-card__body { padding: 8px 10px; }
+    .step-card__title { font-size: 12px; font-weight: 600; color: #1e293b; }
+    .step-card__desc { font-size: 10px; color: #64748b; }
+
+    /* Flow arrows bar */
+    .flow-bar { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 4px 0; flex-shrink: 0; }
+    .flow-bar__step { display: flex; align-items: center; gap: 4px; }
+    .flow-bar__circle {
+        width: 22px; height: 22px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .flow-bar__circle-text { font-size: 10px; color: white; font-weight: 700; }
+    .flow-bar__label { font-size: 10px; color: #64748b; }
+    .flow-bar__arrow { color: #cbd5e1; font-size: 10px; }
+
+    /* Footer */
+    .slide__footer { flex-shrink: 0; margin-top: 10px; }
+    .slide__footer-row { display: flex; justify-content: space-between; align-items: center; }
+    .slide__footer-info { font-size: 13px; color: #64748b; }
+    .slide__footer-info i { margin-right: 8px; color: #3b82f6; }
+
+    /* Shared icon colors */
+    .icon--blue { color: #3b82f6; }
+    .icon--green { color: #10b981; }
+    .icon--amber { color: #f59e0b; }
+    .icon--purple { color: #9333ea; }
+    .icon-xs { font-size: 10px; }
+    .icon-sm { font-size: 13px; }
+    .icon-md { font-size: 14px; }
+
+    /* Background colors for flow-bar circles */
+    .bg--blue { background: #3b82f6; }
+    .bg--green { background: #10b981; }
+    .bg--amber { background: #f59e0b; }
+    .bg--purple { background: #9333ea; }
+</style>
+</head>
+<body>
+<div class="slide">
+    <!-- Header -->
+    <div class="slide__header">
+        <div class="slide__header-row">
+            <div>
+                <div class="slide__title">
+                    <i class="fas fa-table slide__title-icon"></i>
+                    ERP Summary: Dữ liệu tổng hợp
+                </div>
+                <div class="slide__subtitle">Quản lý dữ liệu nhập–xuất–tồn theo từng mã hàng — Upload, Mapping, Preview, Lưu trữ</div>
+            </div>
+            <div class="slide__module-badge">
+                Module: <span class="slide__module-badge--value">Upload ERP</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body -->
+    <div class="slide__body">
+        <!-- Left: Main Screenshot -->
+        <div class="content-left">
+            <div class="screenshot-panel">
+                <div class="screenshot-panel__header">
+                    <div class="screenshot-panel__title">
+                        <i class="fas fa-list-alt icon--blue"></i>
+                        Màn hình quản lý ERP Summary
+                    </div>
+                    <div class="screenshot-panel__tags">
+                        <div class="tag tag--blue">Danh sách</div>
+                        <div class="tag tag--green">Upload</div>
+                        <div class="tag tag--purple">File History</div>
+                    </div>
+                </div>
+                <div class="screenshot-panel__img" data-object="true" data-object-type="image">
+                    <img src="images/slide-8.1 - list erp summary.jpg" alt="List ERP Summary"/>
+                </div>
+            </div>
+            <div class="benefit-callout">
+                <div class="benefit-callout__icon">
+                    <i class="fas fa-lightbulb icon--blue icon-md"></i>
+                </div>
+                <div class="benefit-callout__text">
+                    <strong>Không cần chỉnh file thủ công</strong> — Upload file ERP gốc, hệ thống tự mapping trường dữ liệu
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: 4 Workflow Steps -->
+        <div class="content-right">
+            <div class="flow-label">
+                <i class="fas fa-project-diagram icon--blue icon-sm"></i>
+                <span class="flow-label__text">Quy trình Upload & Mapping</span>
+            </div>
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-num step-num--blue">1</div>
+                    <div class="step-card__img" data-object="true" data-object-type="image">
+                        <img src="images/slide-8.2 - upload file.jpg" alt="Upload File"/>
+                    </div>
+                    <div class="step-card__body">
+                        <div class="step-card__title">Upload file</div>
+                        <div class="step-card__desc">Kéo thả hoặc chọn file XLS/XLSX</div>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-num step-num--green">2</div>
+                    <div class="step-card__img" data-object="true" data-object-type="image">
+                        <img src="images/slide-8.3 - mapping fields.jpg" alt="Mapping Fields"/>
+                    </div>
+                    <div class="step-card__body">
+                        <div class="step-card__title">Mapping trường</div>
+                        <div class="step-card__desc">Map cột file ↔ cột hệ thống</div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-num step-num--amber">3</div>
+                    <div class="step-card__img" data-object="true" data-object-type="image">
+                        <img src="images/slide-8.4 - preview.jpg" alt="Preview Data"/>
+                    </div>
+                    <div class="step-card__body">
+                        <div class="step-card__title">Preview & kiểm tra</div>
+                        <div class="step-card__desc">Xem trước dữ liệu, phát hiện lỗi</div>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-num step-num--purple">4</div>
+                    <div class="step-card__img" data-object="true" data-object-type="image">
+                        <img src="images/slide-8.5 - file history.jpg" alt="File History"/>
+                    </div>
+                    <div class="step-card__body">
+                        <div class="step-card__title">Lịch sử file</div>
+                        <div class="step-card__desc">Truy vết file upload theo kỳ</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Flow arrows -->
+            <div class="flow-bar">
+                <div class="flow-bar__step">
+                    <div class="flow-bar__circle bg--blue">
+                        <span class="flow-bar__circle-text">1</span>
+                    </div>
+                    <span class="flow-bar__label">Upload</span>
+                </div>
+                <i class="fas fa-chevron-right flow-bar__arrow"></i>
+                <div class="flow-bar__step">
+                    <div class="flow-bar__circle bg--green">
+                        <span class="flow-bar__circle-text">2</span>
+                    </div>
+                    <span class="flow-bar__label">Mapping</span>
+                </div>
+                <i class="fas fa-chevron-right flow-bar__arrow"></i>
+                <div class="flow-bar__step">
+                    <div class="flow-bar__circle bg--amber">
+                        <span class="flow-bar__circle-text">3</span>
+                    </div>
+                    <span class="flow-bar__label">Preview</span>
+                </div>
+                <i class="fas fa-chevron-right flow-bar__arrow"></i>
+                <div class="flow-bar__step">
+                    <div class="flow-bar__circle bg--purple">
+                        <span class="flow-bar__circle-text">4</span>
+                    </div>
+                    <span class="flow-bar__label">History</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide__footer">
+        <div class="slide__footer-row">
+            <div class="slide__footer-info">
+                <i class="fas fa-info-circle"></i>
+                Upload file → Mapping động → Preview & kiểm tra → Lưu trữ lịch sử theo kỳ
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 6 - Dashboard: Export & Lưu trữ</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    body {
+        margin: 0; padding: 0; overflow: hidden;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .slide {
+        width: 1280px; height: 720px;
+        display: flex; flex-direction: column;
+        padding: 22px 50px 18px;
+        overflow: hidden;
+        transform-origin: center center;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        font-family: 'Montserrat', sans-serif;
+        box-sizing: border-box;
+    }
+
+    /* Header */
+    .slide__header {
+        flex-shrink: 0;
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 12px;
+    }
+    .slide__title {
+        font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 5px;
+    }
+    .slide__title-icon { color: #3b82f6; margin-right: 10px; }
+    .slide__subtitle { font-size: 14px; color: #64748b; }
+    .slide__status {
+        background: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        border-radius: 8px; padding: 8px 16px;
+        font-size: 12px; color: #3b82f6; font-weight: 600;
+    }
+    .slide__status-active { color: #10b981; }
+
+    /* Body */
+    .slide__body {
+        flex: 1; min-height: 0;
+        display: flex; gap: 20px;
+    }
+
+    /* Left column */
+    .body__left {
+        flex: 1.6; display: flex; flex-direction: column; gap: 12px;
+        min-height: 0;
+    }
+    .screenshot-card {
+        background: white; border-radius: 12px; padding: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+        flex: 1; min-height: 0;
+        display: flex; flex-direction: column;
+    }
+    .screenshot-card__header {
+        display: flex; align-items: center; justify-content: space-between;
+        margin-bottom: 10px; flex-shrink: 0;
+    }
+    .screenshot-card__title {
+        font-size: 15px; font-weight: 600; color: #1e293b;
+        display: flex; align-items: center; gap: 8px;
+    }
+    .screenshot-card__title-icon { color: #3b82f6; }
+    .screenshot-card__btn {
+        background: #3b82f6; color: white; padding: 6px 14px;
+        border-radius: 8px; font-size: 12px; font-weight: 600;
+        display: flex; align-items: center; gap: 6px;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+    .screenshot-card__img-wrap {
+        border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0;
+        flex: 1; min-height: 0;
+    }
+    .screenshot-card__img {
+        width: 100%; height: 100%; display: block; object-fit: contain;
+    }
+
+    /* Workflow bar */
+    .workflow {
+        display: flex; align-items: center; justify-content: center;
+        gap: 10px; flex-shrink: 0;
+    }
+    .workflow__step {
+        background: white; border-radius: 10px; padding: 10px 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+        display: flex; align-items: center; gap: 8px;
+    }
+    .workflow__step-icon {
+        width: 28px; height: 28px;
+        background: rgba(59, 130, 246, 0.1); border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+        color: #3b82f6; font-size: 13px;
+    }
+    .workflow__step-label { font-size: 13px; font-weight: 600; color: #1e293b; }
+    .workflow__arrow { color: #3b82f6; font-size: 14px; }
+    .workflow__targets { display: flex; gap: 8px; }
+    .workflow__target {
+        background: rgba(59, 130, 246, 0.05);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 8px; padding: 7px 12px;
+        font-size: 12px; color: #3b82f6; font-weight: 600;
+    }
+    .workflow__target-icon { margin-right: 4px; }
+
+    /* Right column */
+    .body__right {
+        flex: 0.8; display: flex; flex-direction: column; gap: 14px;
+        min-height: 0;
+    }
+    .feature-card {
+        background: white; border-radius: 12px; padding: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;
+    }
+    .feature-card__header {
+        display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+    }
+    .feature-card__icon {
+        width: 44px; height: 44px; border-radius: 10px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 20px;
+    }
+    .feature-card__icon--blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .feature-card__title { font-size: 16px; font-weight: 700; color: #1e293b; }
+    .feature-card__subtitle { font-size: 12px; color: #64748b; }
+    .feature-card__text {
+        font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 12px;
+    }
+    .feature-card__checks { display: flex; flex-direction: column; gap: 6px; }
+    .feature-card__check {
+        display: flex; align-items: center; gap: 8px;
+        font-size: 13px; color: #1e293b;
+    }
+    .feature-card__check-icon { color: #10b981; font-size: 14px; }
+
+    /* Use cases section */
+    .usecase__title {
+        font-size: 15px; font-weight: 600; color: #1e293b;
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .usecase__title-icon { color: #3b82f6; }
+    .usecase__list { display: flex; flex-direction: column; gap: 8px; }
+    .usecase__item {
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px; border-radius: 8px;
+    }
+    .usecase__item--blue { background: rgba(59, 130, 246, 0.05); }
+    .usecase__item--green { background: rgba(16, 185, 129, 0.05); }
+    .usecase__item--purple { background: rgba(147, 51, 234, 0.05); }
+    .usecase__item-icon {
+        width: 28px; height: 28px; border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; flex-shrink: 0;
+    }
+    .usecase__item-icon--blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+    .usecase__item-icon--green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+    .usecase__item-icon--purple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+    .usecase__item-title { font-size: 13px; font-weight: 600; color: #1e293b; }
+    .usecase__item-desc { font-size: 11px; color: #64748b; }
+
+    /* Footer */
+    .slide__footer {
+        flex-shrink: 0;
+        display: flex; justify-content: space-between; align-items: center;
+        padding-top: 10px;
+    }
+    .slide__footer-text { font-size: 13px; color: #64748b; }
+    .slide__footer-icon { margin-right: 8px; color: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="slide">
+    <!-- Header -->
+    <div class="slide__header">
+        <div>
+            <div class="slide__title">
+                <i class="fas fa-download slide__title-icon"></i>
+                Dashboard: Export & Lưu trữ
+            </div>
+            <div class="slide__subtitle">Xuất file hình ảnh dashboard tiện lợi cho báo cáo và lưu hồ sơ</div>
+        </div>
+        <div class="slide__status">Status: <span class="slide__status-active">Đang hoạt động</span></div>
+    </div>
+
+    <!-- Body -->
+    <div class="slide__body">
+        <!-- Left: Dashboard Screenshot -->
+        <div class="body__left">
+            <div class="screenshot-card">
+                <div class="screenshot-card__header">
+                    <div class="screenshot-card__title">
+                        <i class="fas fa-chart-area screenshot-card__title-icon"></i>
+                        Dashboard — Tax & Fee Trends
+                    </div>
+                    <div class="screenshot-card__btn">
+                        <i class="fas fa-image"></i> Export PNG
+                    </div>
+                </div>
+                <div class="screenshot-card__img-wrap">
+                    <img src="images/slide-6.jpg" alt="Dashboard Export Preview" class="screenshot-card__img" />
+                </div>
+            </div>
+            <!-- Workflow -->
+            <div class="workflow">
+                <div class="workflow__step">
+                    <div class="workflow__step-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span class="workflow__step-label">Dashboard</span>
+                </div>
+                <i class="fas fa-arrow-right workflow__arrow"></i>
+                <div class="workflow__step">
+                    <div class="workflow__step-icon"><i class="fas fa-image"></i></div>
+                    <span class="workflow__step-label">Export PNG</span>
+                </div>
+                <i class="fas fa-arrow-right workflow__arrow"></i>
+                <div class="workflow__targets">
+                    <div class="workflow__target">
+                        <i class="fas fa-envelope workflow__target-icon"></i> Email
+                    </div>
+                    <div class="workflow__target">
+                        <i class="fas fa-file-alt workflow__target-icon"></i> Báo cáo
+                    </div>
+                    <div class="workflow__target">
+                        <i class="fas fa-archive workflow__target-icon"></i> Lưu trữ
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Feature Description -->
+        <div class="body__right">
+            <!-- Export PNG Card -->
+            <div class="feature-card">
+                <div class="feature-card__header">
+                    <div class="feature-card__icon feature-card__icon--blue"><i class="fas fa-image"></i></div>
+                    <div>
+                        <div class="feature-card__title">Export hình ảnh</div>
+                        <div class="feature-card__subtitle">Xuất PNG chất lượng cao</div>
+                    </div>
+                </div>
+                <div class="feature-card__text">
+                    Hỗ trợ xuất dashboard dưới dạng hình ảnh PNG, tiện lợi cho việc gửi email, đính kèm báo cáo, hoặc lưu hồ sơ nội bộ.
+                </div>
+                <div class="feature-card__checks">
+                    <div class="feature-card__check">
+                        <i class="fas fa-check-circle feature-card__check-icon"></i>
+                        Chất lượng cao, rõ nét
+                    </div>
+                    <div class="feature-card__check">
+                        <i class="fas fa-check-circle feature-card__check-icon"></i>
+                        Một click xuất nhanh
+                    </div>
+                    <div class="feature-card__check">
+                        <i class="fas fa-check-circle feature-card__check-icon"></i>
+                        Tự động đặt tên theo kỳ
+                    </div>
+                </div>
+            </div>
+            <!-- Use Cases -->
+            <div class="feature-card">
+                <div class="usecase__title">
+                    <i class="fas fa-th-large usecase__title-icon"></i>
+                    Ứng dụng
+                </div>
+                <div class="usecase__list">
+                    <div class="usecase__item usecase__item--blue">
+                        <div class="usecase__item-icon usecase__item-icon--blue"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <div class="usecase__item-title">Gửi email báo cáo</div>
+                            <div class="usecase__item-desc">Đính kèm ảnh dashboard nhanh chóng</div>
+                        </div>
+                    </div>
+                    <div class="usecase__item usecase__item--green">
+                        <div class="usecase__item-icon usecase__item-icon--green"><i class="fas fa-desktop"></i></div>
+                        <div>
+                            <div class="usecase__item-title">Trình chiếu nội bộ</div>
+                            <div class="usecase__item-desc">Chèn vào slide PowerPoint</div>
+                        </div>
+                    </div>
+                    <div class="usecase__item usecase__item--purple">
+                        <div class="usecase__item-icon usecase__item-icon--purple"><i class="fas fa-folder-open"></i></div>
+                        <div>
+                            <div class="usecase__item-title">Lưu hồ sơ</div>
+                            <div class="usecase__item-desc">Lưu trữ theo kỳ báo cáo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="slide__footer">
+        <div class="slide__footer-text">
+            <i class="fas fa-info-circle slide__footer-icon"></i>
+            Hỗ trợ xuất file hình ảnh dashboard tiện lợi cho báo cáo nội bộ và lưu hồ sơ
+        </div>
+    </div>
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

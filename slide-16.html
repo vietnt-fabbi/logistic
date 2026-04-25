@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 16 - Annual Report 15A: Quyết toán thành phẩm</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0; padding: 0;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    /* ===== Slide container ===== */
+    .slide {
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        transform-origin: center center;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        display: flex;
+        flex-direction: column;
+        padding: 22px 50px 18px;
+    }
+
+    /* ===== Header (shared pattern) ===== */
+    .header { display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; margin-bottom: 14px; }
+    .header-title { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+    .header-subtitle { font-size: 14px; color: #64748b; }
+    .header-badge {
+        border-radius: 8px;
+        padding: 8px 16px;
+        font-size: 12px;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+
+    /* Theme: green (slide-16) */
+    .header-title .icon--green { color: #10b981; margin-right: 10px; }
+    .header-badge--green {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: #10b981;
+    }
+    .header-badge .accent--dark { color: #1e293b; }
+
+    /* ===== Body (table left + sidebar right) ===== */
+    .body { display: flex; gap: 16px; flex: 1; min-height: 0; }
+
+    /* ===== Table panel ===== */
+    .table-panel {
+        flex: 1.6;
+        background: white;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+    }
+    .table-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        flex-shrink: 0;
+    }
+    .table-panel-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .table-panel-title .icon--green { color: #10b981; }
+
+    .btn-export {
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        border: none;
+    }
+    .btn-export--green { background: #10b981; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3); }
+
+    /* ===== Data table ===== */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .data-table th { background: #f1f5f9; color: #1e293b; font-weight: 600; padding: 10px 12px; text-align: left; border-bottom: 2px solid #e2e8f0; }
+    .data-table td { padding: 9px 12px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+    .data-table tr:hover { background: rgba(59, 130, 246, 0.03); }
+    .data-table tfoot td { background: #f8fafc; font-weight: 600; color: #1e293b; border-top: 2px solid #e2e8f0; }
+    .data-table .text-right { text-align: right; }
+    .data-table .code--green { font-weight: 600; color: #10b981; }
+    .data-table .text-right-bold { text-align: right; font-weight: 700; }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+        flex: 0.8;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+    .sidebar-card {
+        background: white;
+        border-radius: 12px;
+        padding: 18px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+    }
+    .sidebar-card-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .sidebar-card-title .icon--green { color: #10b981; }
+
+    /* Info rows */
+    .info-list { display: flex; flex-direction: column; gap: 10px; }
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px 10px;
+        border-radius: 8px;
+    }
+    .info-row--default { background: #f8fafc; }
+    .info-row--success { background: rgba(16, 185, 129, 0.05); }
+    .info-row-label { font-size: 12px; color: #64748b; }
+    .info-row-value { font-size: 13px; font-weight: 600; color: #1e293b; }
+    .info-row-value--success { color: #10b981; }
+    .info-row-value--success i { margin-right: 4px; }
+
+    /* Export options */
+    .export-list { display: flex; flex-direction: column; gap: 10px; }
+    .export-option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 600;
+        color: #1e293b;
+    }
+    .export-option--excel {
+        background: rgba(16, 185, 129, 0.05);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+    .export-option--excel i { color: #10b981; font-size: 16px; }
+    .export-option--pdf {
+        background: rgba(239, 68, 68, 0.05);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .export-option--pdf i { color: #ef4444; font-size: 16px; }
+
+    /* ===== Screenshot ===== */
+    .screenshot-frame { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; flex: 1; min-height: 0; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block; }
+
+    /* ===== Footer ===== */
+    .footer { flex-shrink: 0; margin-top: 12px; }
+    .footer-info { font-size: 13px; color: #64748b; }
+    .footer-info i { margin-right: 8px; color: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <div class="header-title"><i class="fas fa-cube icon--green"></i>Annual Report 15A: Quyết toán thành phẩm</div>
+            <div class="header-subtitle">Báo cáo tổng hợp nhập–xuất–tồn thành phẩm theo kỳ</div>
+        </div>
+        <div class="header-badge header-badge--green">Mẫu: <span class="accent--dark">15A</span></div>
+    </div>
+
+    <!-- Body -->
+    <div class="body">
+
+        <!-- Left: Table -->
+        <div class="table-panel">
+            <div class="table-panel-header">
+                <div class="table-panel-title">
+                    <i class="fas fa-table icon--green"></i>
+                    Báo cáo mẫu 15A — Thành phẩm
+                </div>
+            </div>
+            <div class="screenshot-frame">
+                <img src="images/slide-16 - annual report 15a.jpg" alt="Annual Report 15A" />
+            </div>
+        </div>
+
+        <!-- Right: Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-card-title"><i class="fas fa-info-circle icon--green"></i>Thông tin báo cáo</div>
+                <div class="info-list">
+                    <div class="info-row info-row--default">
+                        <div class="info-row-label">Kỳ báo cáo</div>
+                        <div class="info-row-value">Q1/2026</div>
+                    </div>
+                    <div class="info-row info-row--default">
+                        <div class="info-row-label">Ngày xuất</div>
+                        <div class="info-row-value">25/04/2026</div>
+                    </div>
+                    <div class="info-row info-row--success">
+                        <div class="info-row-label">Trạng thái</div>
+                        <div class="info-row-value info-row-value--success"><i class="fas fa-check-circle"></i>Sẵn sàng</div>
+                    </div>
+                    <div class="info-row info-row--default">
+                        <div class="info-row-label">Số dòng</div>
+                        <div class="info-row-value">256</div>
+                    </div>
+                    <div class="info-row info-row--default">
+                        <div class="info-row-label">Định dạng</div>
+                        <div class="info-row-value">Mẫu 15A HQ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-card">
+                <div class="sidebar-card-title"><i class="fas fa-download icon--green"></i>Xuất báo cáo</div>
+                <div class="export-list">
+                    <div class="export-option export-option--excel">
+                        <i class="fas fa-file-excel"></i>
+                        <span>Excel (.xlsx)</span>
+                    </div>
+                    <div class="export-option export-option--pdf">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>PDF (.pdf)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-info">
+            <i class="fas fa-info-circle"></i>
+            Báo cáo mẫu 15A — Quyết toán thành phẩm sản xuất–xuất–tồn theo kỳ
+        </div>
+    </div>
+
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>

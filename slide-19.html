@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 19 - HS Code Report</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        overflow: hidden;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0; padding: 0;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .slide { width: 1280px; height: 720px; display: flex; flex-direction: column; padding: 22px 50px 18px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); overflow: hidden;
+        transform-origin: center center; }
+
+    /* Header */
+    .header { flex-shrink: 0; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .header-title { font-size: 26px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+    .header-title i { color: #ef4444; margin-right: 10px; }
+    .header-subtitle { font-size: 14px; color: #64748b; }
+    .header-badge { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 8px; padding: 8px 16px; font-size: 12px; color: #ef4444; font-weight: 600; flex-shrink: 0; }
+    .header-badge i { margin-right: 4px; }
+
+    /* Risk callout */
+    .risk-callout { flex-shrink: 0; background: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .risk-icon { width: 32px; height: 32px; background: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #ef4444; font-size: 14px; }
+    .risk-text { font-size: 13px; color: #1e293b; }
+    .risk-label { color: #ef4444; }
+
+    /* Body: screenshot left 75% + sidebar right 25% */
+    .body { flex: 1; min-height: 0; display: flex; gap: 16px; }
+
+    /* Screenshot panel (left) */
+    .screenshot-panel {
+        flex: 3;
+        background: white;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+    }
+    .screenshot-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-shrink: 0; }
+    .screenshot-title { font-size: 14px; font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 8px; }
+    .screenshot-title i { color: #ef4444; }
+    .screenshot-actions { display: flex; gap: 8px; }
+    .btn--primary { background: #ef4444; color: white; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+    .btn--secondary { background: rgba(59, 130, 246, 0.1); color: #3b82f6; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+    .screenshot-frame { border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; flex: 1; min-height: 0; }
+    .screenshot-frame img { width: 100%; height: 100%; object-fit: contain; object-position: top left; display: block; }
+
+    /* Sidebar (right) */
+    .sidebar { flex: 1; display: flex; flex-direction: column; gap: 12px; }
+
+    /* Sidebar card */
+    .sidebar-card {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border: 1px solid #e2e8f0;
+    }
+    .sidebar-card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .sidebar-card-title i { color: #ef4444; font-size: 13px; }
+
+    /* Stat rows */
+    .stat-list { display: flex; flex-direction: column; gap: 8px; }
+    .stat-row { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; }
+    .stat-row--red { background: rgba(239, 68, 68, 0.05); }
+    .stat-row--amber { background: rgba(245, 158, 11, 0.05); }
+    .stat-row--blue { background: rgba(59, 130, 246, 0.05); }
+    .stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .stat-dot--red { background: #ef4444; }
+    .stat-dot--amber { background: #f59e0b; }
+    .stat-dot--blue { background: #3b82f6; }
+    .stat-name { font-size: 12px; color: #64748b; flex: 1; }
+    .stat-value { font-size: 14px; font-weight: 700; }
+    .stat-value--red { color: #ef4444; }
+    .stat-value--amber { color: #f59e0b; }
+    .stat-value--blue { color: #3b82f6; }
+
+    /* Feature items */
+    .feature-list { display: flex; flex-direction: column; gap: 8px; }
+    .feature-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #334155; }
+    .feature-item i { color: #10b981; font-size: 11px; flex-shrink: 0; }
+
+    /* Risk level indicator */
+    .risk-level { display: flex; flex-direction: column; gap: 6px; }
+    .risk-bar { display: flex; align-items: center; gap: 8px; }
+    .risk-bar-label { font-size: 11px; color: #64748b; width: 55px; flex-shrink: 0; }
+    .risk-bar-track { flex: 1; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+    .risk-bar-fill { height: 100%; border-radius: 3px; }
+    .risk-bar-fill--high { background: #ef4444; }
+    .risk-bar-fill--medium { background: #f59e0b; }
+    .risk-bar-fill--low { background: #10b981; }
+
+    /* Footer */
+    .footer { flex-shrink: 0; margin-top: 10px; }
+    .footer-info { font-size: 13px; color: #64748b; }
+    .footer-info i { margin-right: 8px; color: #3b82f6; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+    <!-- Header -->
+    <div class="header">
+        <div>
+            <div class="header-title"><i class="fas fa-barcode"></i>HS Code Report</div>
+            <div class="header-subtitle">Phát hiện mã hàng ECUS gắn với nhiều HS Code khác nhau</div>
+        </div>
+        <div class="header-badge"><i class="fas fa-exclamation-circle"></i>8 issues</div>
+    </div>
+
+    <!-- Risk Callout -->
+    <div class="risk-callout">
+        <div class="risk-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="risk-text"><strong class="risk-label">Rủi ro:</strong> Khai sai mã HS → sai thuế suất → bị truy thu thuế</div>
+    </div>
+
+    <!-- Body: 75% screenshot | 25% sidebar -->
+    <div class="body">
+
+        <!-- Screenshot (left) -->
+        <div class="screenshot-panel">
+            <div class="screenshot-header">
+                <div class="screenshot-title"><i class="fas fa-table"></i>Danh sách mã hàng có nhiều HS Code</div>
+            </div>
+            <div class="screenshot-frame">
+                <img src="images/slide-19 - HS Code Report.jpg" alt="HS Code Report" />
+            </div>
+        </div>
+
+        <!-- Sidebar (right) -->
+        <div class="sidebar">
+            <!-- Summary -->
+            <div class="sidebar-card">
+                <div class="sidebar-card-title"><i class="fas fa-chart-pie"></i>Tổng kết</div>
+                <div class="stat-list">
+                    <div class="stat-row stat-row--red">
+                        <div class="stat-dot stat-dot--red"></div>
+                        <span class="stat-name">Bất thường</span>
+                        <span class="stat-value stat-value--red">5</span>
+                    </div>
+                    <div class="stat-row stat-row--amber">
+                        <div class="stat-dot stat-dot--amber"></div>
+                        <span class="stat-name">Cần kiểm tra</span>
+                        <span class="stat-value stat-value--amber">3</span>
+                    </div>
+                    <div class="stat-row stat-row--blue">
+                        <div class="stat-dot stat-dot--blue"></div>
+                        <span class="stat-name">Thuế chênh lệch</span>
+                        <span class="stat-value stat-value--blue">$12.5K</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Level -->
+            <div class="sidebar-card">
+                <div class="sidebar-card-title"><i class="fas fa-signal"></i>Mức độ rủi ro</div>
+                <div class="risk-level">
+                    <div class="risk-bar">
+                        <span class="risk-bar-label">Cao</span>
+                        <div class="risk-bar-track"><div class="risk-bar-fill risk-bar-fill--high" style="width: 62%"></div></div>
+                    </div>
+                    <div class="risk-bar">
+                        <span class="risk-bar-label">Trung bình</span>
+                        <div class="risk-bar-track"><div class="risk-bar-fill risk-bar-fill--medium" style="width: 38%"></div></div>
+                    </div>
+                    <div class="risk-bar">
+                        <span class="risk-bar-label">Thấp</span>
+                        <div class="risk-bar-track"><div class="risk-bar-fill risk-bar-fill--low" style="width: 0%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="sidebar-card">
+                <div class="sidebar-card-title"><i class="fas fa-cogs"></i>Tính năng</div>
+                <div class="feature-list">
+                    <div class="feature-item"><i class="fas fa-check"></i>Export danh sách ra Excel</div>
+                    <div class="feature-item"><i class="fas fa-check"></i>Xem chi tiết từng mã hàng</div>
+                    <div class="feature-item"><i class="fas fa-check"></i>Lọc theo mức độ rủi ro</div>
+                    <div class="feature-item"><i class="fas fa-check"></i>So sánh HS Code qua các kỳ</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-info">
+            <i class="fas fa-info-circle"></i>
+            Phát hiện mã hàng ECUS gắn với nhiều HS Code — rủi ro sai thuế suất
+        </div>
+    </div>
+
+</div>
+<script>
+function scaleSlide() {
+    var slide = document.querySelector('.slide');
+    var scaleX = window.innerWidth / 1280;
+    var scaleY = window.innerHeight / 720;
+    slide.style.transform = 'scale(' + Math.min(scaleX, scaleY) + ')';
+}
+scaleSlide();
+window.addEventListener('resize', scaleSlide);
+</script>
+</body>
+</html>
