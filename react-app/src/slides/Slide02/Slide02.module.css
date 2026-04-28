@@ -1,0 +1,218 @@
+/* Slide 02 — Bài toán của doanh nghiệp XNK */
+
+/* Body */
+.body {
+    min-height: 0;
+    display: flex;
+    gap: 30px;
+}
+
+/* Pain list */
+.painList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.painPoint {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.painPoint:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.painPointIcon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+.painPointIconRed { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.painPointIconAmber { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.painPointIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+.painPointIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+
+.painPointBody {
+    flex: 1;
+    min-width: 0;
+}
+
+.painPointTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.painPointName {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.painPointDesc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.statusBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.statusBadgeError { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+.statusBadgeWarning { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+
+/* Workflow */
+.workflow {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.workflowTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.workflowTitle i {
+    color: #3b82f6;
+}
+
+.workflowDiagram {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 12px 20px;
+    align-content: start;
+}
+
+.wfStep {
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wfStepDefault {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.wfStepWarning {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+}
+
+.wfStepError {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+}
+
+.wfStepSuccess {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    grid-column: 1 / -1;
+}
+
+.wfStepIcon {
+    width: 30px; height: 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.wfStepIconBlue { background: #3b82f6; }
+.wfStepIconAmber { background: #f59e0b; }
+.wfStepIconRed { background: #ef4444; }
+.wfStepIconGreen { background: #10b981; }
+
+.wfStepLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.wfStepSub {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.wfArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+/* Legend */
+.workflowLegend {
+    display: flex;
+    gap: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: auto;
+    flex-shrink: 0;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legendItemDot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+}
+
+.legendItemDotRed { background: #ef4444; }
+.legendItemDotAmber { background: #f59e0b; }
+.legendItemDotBlue { background: #3b82f6; }
+
+.legendItemText {
+    font-size: 12px;
+    color: #64748b;
+}

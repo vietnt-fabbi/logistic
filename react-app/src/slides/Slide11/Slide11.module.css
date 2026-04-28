@@ -1,0 +1,104 @@
+/* 3 USP cards row */
+.uspRow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; flex-shrink: 0; margin-bottom: 14px; }
+.uspCard {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: all 0.3s ease;
+}
+.uspCard:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+.uspIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+.uspIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.uspIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.uspIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+.uspTitle { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+.uspDesc { font-size: 12px; color: #64748b; line-height: 1.4; }
+
+/* Comparison section */
+.comparison { display: flex; gap: 24px; flex: 1; min-height: 0; }
+
+/* Before / After panels */
+.panel {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+.panelBefore { border-top: 3px solid #ef4444; }
+.panelAfter { border-top: 3px solid #10b981; }
+
+.panelHeader { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-shrink: 0; }
+.panelBadge { padding: 5px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; }
+.panelBadgeBefore { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+.panelBadgeAfter { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.panelBadge i { margin-right: 6px; }
+.panelLabel { font-size: 13px; color: #64748b; }
+
+.panelBody { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+
+/* Flow items */
+.flowItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+.flowItem i:first-child { font-size: 14px; flex-shrink: 0; width: 16px; text-align: center; }
+
+.flowItemRed { background: rgba(239, 68, 68, 0.05); color: #1e293b; }
+.flowItemRed i { color: #ef4444; }
+.flowItemRedStrong { background: rgba(239, 68, 68, 0.1); border: 1px dashed #ef4444; color: #ef4444; font-weight: 600; }
+.flowItemRedStrong i { color: #ef4444; }
+
+.flowItemGreen { background: rgba(16, 185, 129, 0.05); color: #1e293b; }
+.flowItemGreen i { color: #10b981; }
+.flowItemGreenStrong { background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; color: #10b981; font-weight: 600; }
+.flowItemGreenStrong i { color: #10b981; }
+.flowItemBlueStrong { background: rgba(59, 130, 246, 0.1); border: 1px solid #3b82f6; color: #3b82f6; font-weight: 600; }
+.flowItemBlueStrong i { color: #3b82f6; }
+
+.flowArrow { text-align: center; padding: 3px 0; font-size: 12px; flex-shrink: 0; }
+.flowArrowRed { color: #ef4444; }
+.flowArrowGreen { color: #10b981; }
+
+/* Center divider */
+.comparisonDivider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 6px;
+}
+.dividerIcon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #ef4444, #10b981);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+.dividerLabel { font-size: 10px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }

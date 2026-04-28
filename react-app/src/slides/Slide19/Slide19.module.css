@@ -1,0 +1,124 @@
+/* Risk callout */
+.riskCallout {
+    flex-shrink: 0;
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 10px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.riskIcon {
+    width: 32px;
+    height: 32px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #ef4444;
+    font-size: 14px;
+}
+
+.riskText {
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.riskLabel {
+    color: #ef4444;
+}
+
+/* Body */
+.body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 16px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebarCard {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.sidebarCardTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Feature list */
+.featureList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.featureIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.featureIcon i {
+    font-size: 14px;
+    color: white;
+}
+
+.featureIconRed { background: #ef4444; }
+.featureIconBlue { background: #3b82f6; }
+.featureIconGreen { background: #10b981; }
+.featureIconAmber { background: #f59e0b; }
+.featureIconPurple { background: #9333ea; }
+
+.featureText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.featureTitle {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.featureDesc {
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.4;
+}

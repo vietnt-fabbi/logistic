@@ -1,0 +1,92 @@
+/* Body — 2 columns: 75% left / 25% right */
+.body { display: flex; gap: 20px; flex: 1; min-height: 0; }
+
+/* Left — screenshot 75% */
+.bodyLeft { flex: 3; display: flex; flex-direction: column; min-height: 0; }
+
+/* Right — sidebar 25% */
+.bodyRight { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+
+/* Feature card */
+.featureCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+.featureCardTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.featureCardTitle i { color: #3b82f6; }
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #334155;
+    padding: 8px 0;
+}
+.featureItem + .featureItem { border-top: 1px solid #f1f5f9; }
+.featureItem i { color: #10b981; font-size: 12px; flex-shrink: 0; }
+
+/* Benefit callout */
+.benefit {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+.benefitIcon {
+    width: 34px;
+    height: 34px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.benefitIcon i { color: #3b82f6; font-size: 15px; }
+.benefitText { font-size: 13px; color: #1e293b; line-height: 1.5; }
+
+/* Upload info */
+.uploadInfo {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+}
+.uploadInfoTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.uploadInfoTitle i { color: #10b981; }
+.uploadStatus {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #10b981;
+    font-weight: 600;
+}
+.uploadStatusDot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+}

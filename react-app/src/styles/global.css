@@ -1,0 +1,26 @@
+/* Reset */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Font */
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Colors */
+:root {
+    --blue: #3b82f6;
+    --green: #10b981;
+    --red: #ef4444;
+    --amber: #f59e0b;
+    --purple: #9333ea;
+    --orange: #ea580c;
+    --dark: #1e293b;
+    --muted: #64748b;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+    --bg-light: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --bg-dark: linear-gradient(135deg, #0A3D62 0%, #1A5276 100%);
+    --shadow: 0 2px 8px rgba(0,0,0,0.05);
+}

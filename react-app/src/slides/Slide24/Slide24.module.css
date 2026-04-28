@@ -1,0 +1,140 @@
+/* Grid 2x2 */
+.grid {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* Card */
+.card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    padding: 20px 22px;
+    display: flex;
+    gap: 18px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.cardGreen { border-left: 4px solid #10b981; }
+.cardBlue { border-left: 4px solid #3b82f6; }
+.cardPurple { border-left: 4px solid #9333ea; }
+.cardYellow { border-left: 4px solid #f59e0b; }
+
+/* Icon */
+.cardIcon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 32px;
+}
+
+.cardIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.cardIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.cardIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+.cardIconYellow { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+
+/* Content */
+.cardBody {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.cardTitle {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 5px;
+}
+
+.cardDesc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: auto;
+}
+
+.cardMetrics {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+/* Metric chips */
+.chip {
+    border-radius: 8px;
+    padding: 5px 12px;
+    text-align: center;
+}
+
+.chipValue {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.chipLabel {
+    font-size: 9px;
+    color: #64748b;
+    margin-top: 1px;
+}
+
+.chipRed { background: rgba(239, 68, 68, 0.1); }
+.chipRed .chipValue { color: #ef4444; }
+
+.chipGreen { background: rgba(16, 185, 129, 0.1); }
+.chipGreen .chipValue { color: #10b981; }
+
+.chipGreenOutline {
+    background: rgba(16, 185, 129, 0.05);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.chipGreenOutline .chipValue {
+    color: #10b981;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.chipBlue { background: rgba(59, 130, 246, 0.1); }
+.chipBlue .chipValue { color: #3b82f6; }
+
+.chipPurple { background: rgba(147, 51, 234, 0.1); }
+.chipPurple .chipValue {
+    color: #9333ea;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chipGreenPill {
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #10b981;
+}
+
+.chipYellow { background: rgba(245, 158, 11, 0.1); }
+.chipYellow .chipValue { color: #f59e0b; }
+
+.arrow {
+    color: #10b981;
+    font-size: 14px;
+}

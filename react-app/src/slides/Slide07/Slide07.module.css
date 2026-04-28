@@ -1,0 +1,169 @@
+/* Slide 07 — Upload ERP: Tổng quan */
+
+.body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Benefits row */
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.benefitCard {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.benefitCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.benefitCardIcon {
+    width: 48px; height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.benefitCardIconBlue { background: rgba(59, 130, 246, 0.1); }
+.benefitCardIconGreen { background: rgba(16, 185, 129, 0.1); }
+.benefitCardIconPurple { background: rgba(147, 51, 234, 0.1); }
+
+.benefitCardTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.benefitCardDesc {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Flow diagram */
+.flowPanel {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.flowPanelTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flowSteps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+}
+
+.flowStep {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    position: relative;
+    border-top: 3px solid;
+}
+
+.flowStepBlue { border-top-color: #3b82f6; }
+.flowStepGreen { border-top-color: #10b981; }
+.flowStepPurple { border-top-color: #9333ea; }
+.flowStepAmber { border-top-color: #f59e0b; }
+
+.flowStepIcon {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.flowStepIconBlue { background: rgba(59, 130, 246, 0.1); }
+.flowStepIconGreen { background: rgba(16, 185, 129, 0.1); }
+.flowStepIconPurple { background: rgba(147, 51, 234, 0.1); }
+.flowStepIconAmber { background: rgba(245, 158, 11, 0.1); }
+
+.flowStepTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.flowStepDesc {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.flowStepNum {
+    position: absolute;
+    top: -14px;
+    left: 20px;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.flowStepNumBlue { background: #3b82f6; }
+.flowStepNumGreen { background: #10b981; }
+.flowStepNumPurple { background: #9333ea; }
+.flowStepNumAmber { background: #f59e0b; }
+
+.flowArrow {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.flowArrowLine {
+    width: 60px;
+    height: 2px;
+}
+
+.flowArrowLineBlue { background: #3b82f6; }
+.flowArrowLineGreen { background: #10b981; }
+.flowArrowLinePurple { background: #9333ea; }
+
+/* Icon colors */
+.iconBlue { color: #3b82f6; }
+.iconGreen { color: #10b981; }
+.iconPurple { color: #9333ea; }
+.iconAmber { color: #f59e0b; }
+.iconLg { font-size: 22px; }
+.iconMd { font-size: 20px; }
+.iconSm { font-size: 12px; }

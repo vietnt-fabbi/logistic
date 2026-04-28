@@ -1,0 +1,141 @@
+/* Flow diagram row */
+.flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    flex-shrink: 0;
+    margin-bottom: 14px;
+}
+.flowStep {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flowStepEngine { background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%); }
+.flowStepBlue { border-top: 3px solid #3b82f6; }
+.flowStepGreen { border-top: 3px solid #10b981; }
+.flowStepPurple { border-top: 3px solid #9333ea; }
+
+.flowIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.flowIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.flowIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.flowIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+.flowName { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+.flowDesc { font-size: 12px; color: #64748b; line-height: 1.4; margin-bottom: 10px; }
+.flowTag { padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+.flowTagBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.flowTagGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.flowTagPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+.flowArrow {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    flex-shrink: 0;
+    color: #94a3b8;
+    font-size: 18px;
+}
+
+/* Bottom section: 2 columns */
+.body { display: flex; gap: 16px; flex: 1; min-height: 0; }
+
+/* Notification column */
+.notifications {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-shrink: 0;
+}
+.sectionTitle i { font-size: 14px; }
+.iconYellow { color: #f59e0b; }
+
+.notif {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+}
+.notifSuccess { background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); }
+.notifWarning { background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); }
+.notifIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+}
+.notifIconSuccess { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.notifIconWarning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.notifTitle { font-size: 13px; font-weight: 600; color: #1e293b; }
+.notifDesc { font-size: 12px; color: #64748b; margin-top: 2px; }
+.notifMeta { font-size: 11px; color: #94a3b8; margin-top: 3px; }
+
+/* Benefits column */
+.benefits {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.benefit {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+}
+.benefitIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 18px;
+}
+.benefitIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.benefitIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.benefitIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+.benefitTitle { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 3px; }
+.benefitDesc { font-size: 12px; color: #64748b; line-height: 1.4; }

@@ -1,0 +1,280 @@
+/* Glass card */
+.glassCard {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.glassCard:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.gradientText {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E8F4FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pulseDot {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Header */
+.slideHeader {
+    flex-shrink: 0;
+    margin-bottom: 18px;
+}
+
+.headerBrand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.headerLogoImg {
+    height: 50px;
+    width: auto;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.headerLabel {
+    font-size: 14px;
+    color: #B8D4E8;
+    font-weight: 500;
+}
+
+.headerName {
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+}
+
+.headerTitle {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.headerSubtitle {
+    font-size: 16px;
+    color: #B8D4E8;
+    line-height: 1.5;
+}
+
+/* Body */
+.slideBody {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CTA cards grid */
+.ctaGrid {
+    display: flex;
+    gap: 25px;
+}
+
+.ctaCard {
+    flex: 1;
+    padding: 28px;
+    text-align: center;
+}
+
+.ctaCardIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.ctaCardIcon i {
+    color: white;
+    font-size: 24px;
+}
+
+.ctaCardIconBlue { background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%); }
+.ctaCardIconGreen { background: linear-gradient(135deg, #2ECC71 0%, #27AE60 100%); }
+.ctaCardIconYellow { background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%); }
+
+.ctaCardTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.ctaCardDesc {
+    font-size: 13px;
+    color: #B8D4E8;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.ctaCardBtn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ctaCardBtnBlue {
+    background: rgba(52, 152, 219, 0.3);
+    border: 1px solid rgba(52, 152, 219, 0.4);
+}
+
+.ctaCardBtnGreen {
+    background: rgba(46, 204, 113, 0.3);
+    border: 1px solid rgba(46, 204, 113, 0.4);
+}
+
+.ctaCardBtnYellow {
+    background: rgba(243, 156, 18, 0.3);
+    border: 1px solid rgba(243, 156, 18, 0.4);
+}
+
+/* Contact bar */
+.contactBar {
+    padding: 22px 35px;
+}
+
+.contactBarInner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contactBarItems {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.contactItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contactItemIcon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contactItemIconBlue { background: rgba(52, 152, 219, 0.2); }
+.contactItemIconBlue i { color: #3498DB; font-size: 16px; }
+
+.contactItemIconGreen { background: rgba(46, 204, 113, 0.2); }
+.contactItemIconGreen i { color: #2ECC71; font-size: 16px; }
+
+.contactItemIconYellow { background: rgba(243, 156, 18, 0.2); }
+.contactItemIconYellow i { color: #F39C12; font-size: 16px; }
+
+.contactItemLabel {
+    font-size: 11px;
+    color: #B8D4E8;
+}
+
+.contactItemValue {
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+}
+
+.contactDivider {
+    width: 1px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.statusBadge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+.statusBadgeDot {
+    width: 8px;
+    height: 8px;
+    background: #2ECC71;
+    border-radius: 50%;
+}
+
+.statusBadgeText {
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+/* Footer */
+.slideFooter {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+}
+
+.footerStats {
+    display: flex;
+    gap: 40px;
+}
+
+.footerStat {
+    text-align: center;
+}
+
+.footerStatValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+}
+
+.footerStatLabel {
+    font-size: 11px;
+    color: #B8D4E8;
+}
+
+.footerMeta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.footerMetaItem {
+    font-size: 13px;
+    color: #B8D4E8;
+}
+
+.footerMetaItem i {
+    margin-right: 8px;
+}

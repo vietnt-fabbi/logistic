@@ -1,0 +1,304 @@
+/* Slide 01 — Cover (dark theme) */
+
+.bgImage {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(10, 61, 98, 0.7);
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 50px 18px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.statusBadge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(46, 204, 113, 0.2);
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+.statusBadgeDot {
+    width: 8px; height: 8px;
+    background: #2ECC71;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.statusBadgeText {
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+}
+
+/* Body */
+.body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Hero */
+.hero {
+    flex: 1;
+    min-width: 0;
+}
+
+.heroBadge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.heroBadgeLogo {
+    height: 50px;
+    width: auto;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.heroBadgeIcon {
+    width: 50px; height: 50px;
+    background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.heroBadgeLabel {
+    font-size: 14px;
+    color: #B8D4E8;
+    font-weight: 500;
+}
+
+.heroBadgeSublabel {
+    font-size: 18px;
+    color: white;
+    font-weight: 700;
+}
+
+.heroTitle {
+    font-size: 52px;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.heroTitleSub {
+    color: #E8F4FD;
+}
+
+.heroFeatures {
+    font-size: 20px;
+    color: #B8D4E8;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.heroFeatures i {
+    color: #2ECC71;
+    margin-right: 10px;
+}
+
+.heroKpis {
+    display: flex;
+    gap: 20px;
+}
+
+.kpiCard {
+    background: rgba(52, 152, 219, 0.2);
+    border: 1px solid rgba(52, 152, 219, 0.3);
+    border-radius: 8px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.kpiCardGreen {
+    background: rgba(46, 204, 113, 0.2);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.kpiCardIcon {
+    font-size: 20px;
+    color: #3498DB;
+}
+
+.kpiCardGreen .kpiCardIcon {
+    color: #2ECC71;
+}
+
+.kpiCardLabel {
+    font-size: 12px;
+    color: #B8D4E8;
+}
+
+.kpiCardValue {
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+}
+
+/* Pain card */
+.painCard {
+    width: 400px;
+    flex-shrink: 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+}
+
+.painCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.painCardHeaderIcon {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+.painCardHeaderTitle {
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+}
+
+.painCardHeaderSub {
+    font-size: 12px;
+    color: #B8D4E8;
+}
+
+.painCardList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.painCardItem {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.painCardDot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.painCardDotRed { background: #E74C3C; }
+.painCardDotOrange { background: #F39C12; }
+.painCardDotPurple { background: #9B59B6; }
+.painCardDotBlue { background: #3498DB; }
+
+.painCardText {
+    font-size: 13px;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats {
+    display: flex;
+    gap: 40px;
+}
+
+.statsItem {
+    text-align: center;
+}
+
+.statsValue {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.statsLabel {
+    font-size: 12px;
+    color: #B8D4E8;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.metaItem {
+    font-size: 14px;
+    color: #B8D4E8;
+}
+
+.metaItem i {
+    margin-right: 8px;
+}
+
+/* Gradient text */
+.gradientText {
+    background: linear-gradient(90deg, #FFFFFF 0%, #E8F4FD 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,143 @@
+/* Flow diagram */
+.flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-shrink: 0;
+    margin-bottom: 14px;
+}
+.flowStep {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 35px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    text-align: center;
+}
+.flowStepBlue { border-top: 3px solid #3b82f6; }
+.flowStepGreen { border-top: 3px solid #10b981; }
+.flowStepPurple { border-top: 3px solid #9333ea; }
+
+.flowIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 20px;
+}
+.flowIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.flowIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.flowIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+.flowName { font-size: 14px; font-weight: 600; color: #1e293b; }
+.flowDesc { font-size: 12px; color: #64748b; }
+
+.flowArrow { color: #3b82f6; font-size: 20px; flex-shrink: 0; }
+.flowArrowGreen { color: #10b981; }
+
+/* Body */
+.body { display: flex; flex-direction: column; gap: 14px; flex: 1; min-height: 0; }
+
+/* Report cards grid */
+.reportCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    flex-shrink: 0;
+}
+.reportCard {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+.reportCard:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.reportCardBlue { border-left: 4px solid #3b82f6; }
+.reportCardGreen { border-left: 4px solid #10b981; }
+.reportCardPurple { border-left: 4px solid #9333ea; }
+
+.reportCardHeader { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.reportCardIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.reportCardIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.reportCardIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.reportCardIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+.reportCardName { font-size: 16px; font-weight: 700; color: #1e293b; }
+.reportCardSub { font-size: 12px; color: #64748b; }
+.reportCardDesc { font-size: 13px; color: #64748b; line-height: 1.5; }
+
+/* Bottom row: time saving + risk */
+.bottomRow { display: flex; gap: 16px; flex: 1; min-height: 0; }
+
+.card {
+    flex: 1;
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+.cardTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.iconYellow { color: #f59e0b; }
+.iconBlue { color: #3b82f6; }
+
+/* Time saving comparison */
+.timeCompare { display: flex; align-items: center; gap: 20px; }
+.timeBox { text-align: center; flex: 1; }
+.timeValueWrap {
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 8px;
+}
+.timeValueWrapRed { background: rgba(239, 68, 68, 0.1); }
+.timeValueWrapGreen { background: rgba(16, 185, 129, 0.1); }
+.timeValue { font-size: 28px; font-weight: 800; }
+.timeValueRed { color: #ef4444; }
+.timeValueGreen { color: #10b981; }
+.timeLabel { font-size: 12px; font-weight: 600; }
+.timeLabelRed { color: #ef4444; }
+.timeLabelGreen { color: #10b981; }
+
+.timeArrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.timeArrow i { color: #10b981; font-size: 24px; }
+.timeArrowPct { font-size: 10px; color: #10b981; font-weight: 600; margin-top: 4px; }
+
+/* Risk reduction list */
+.riskList { display: flex; flex-direction: column; gap: 10px; }
+.riskItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(16, 185, 129, 0.05);
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1e293b;
+}
+.riskItem i { color: #10b981; }

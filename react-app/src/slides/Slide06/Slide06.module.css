@@ -1,0 +1,265 @@
+/* Slide 06 — Dashboard: Export & Lưu trữ */
+
+.body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 20px;
+}
+
+/* Left column */
+.bodyLeft {
+    flex: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 0;
+}
+
+.screenshotCard {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.screenshotCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.screenshotCardTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.screenshotCardTitleIcon { color: #3b82f6; }
+
+.screenshotCardBtn {
+    background: #3b82f6;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.screenshotCardImgWrap {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    flex: 1;
+    min-height: 0;
+}
+
+.screenshotCardImg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* Workflow bar */
+.workflow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.workflowStep {
+    background: white;
+    border-radius: 10px;
+    padding: 10px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.workflowStepIcon {
+    width: 28px; height: 28px;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    font-size: 13px;
+}
+
+.workflowStepLabel {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.workflowArrow {
+    color: #3b82f6;
+    font-size: 14px;
+}
+
+.workflowTargets {
+    display: flex;
+    gap: 8px;
+}
+
+.workflowTarget {
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 12px;
+    color: #3b82f6;
+    font-weight: 600;
+}
+
+.workflowTargetIcon {
+    margin-right: 4px;
+}
+
+/* Right column */
+.bodyRight {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 0;
+}
+
+.featureCard {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+
+.featureCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.featureCardIcon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.featureCardTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.featureCardSubtitle {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.featureCardText {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.featureCardChecks {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.featureCardCheck {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+.featureCardCheckIcon {
+    color: #10b981;
+    font-size: 14px;
+}
+
+/* Use cases */
+.usecaseTitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.usecaseTitleIcon { color: #3b82f6; }
+
+.usecaseList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.usecaseItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.usecaseItemBlue { background: rgba(59, 130, 246, 0.05); }
+.usecaseItemGreen { background: rgba(16, 185, 129, 0.05); }
+.usecaseItemPurple { background: rgba(147, 51, 234, 0.05); }
+
+.usecaseItemIcon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.usecaseItemIconBlue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.usecaseItemIconGreen { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.usecaseItemIconPurple { background: rgba(147, 51, 234, 0.1); color: #9333ea; }
+
+.usecaseItemTitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.usecaseItemDesc {
+    font-size: 11px;
+    color: #64748b;
+}
