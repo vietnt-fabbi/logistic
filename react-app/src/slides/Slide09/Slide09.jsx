@@ -19,7 +19,7 @@ export default function Slide09() {
                 {/* Left: Main Screenshot */}
                 <div className={styles.contentLeft}>
                     <ScreenshotFrame
-                        src="/images/slide-9.1 - list erp daily.jpg"
+                        src="./images/slide-9.1 - list erp daily.jpg"
                         alt="List ERP Daily"
                         title="Danh sách ERP Daily — Tab RM-152"
                         titleIcon="fas fa-list"
@@ -46,7 +46,7 @@ export default function Slide09() {
                             </div>
                         </div>
                         <div className={styles.filterPanelImg}>
-                            <img src="/images/slide-9.2 - filter.jpg" alt="Filter" />
+                            <img src="./images/slide-9.2 - filter.jpg" alt="Filter" />
                         </div>
                     </div>
 

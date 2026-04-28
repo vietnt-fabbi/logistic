@@ -32,7 +32,7 @@ export default function Slide21() {
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
-                        <img src="/images/slide-21 - Unit Price Report.jpg" alt="Unit Price Report" />
+                        <img src="./images/slide-21 - Unit Price Report.jpg" alt="Unit Price Report" />
                     </div>
                 </div>
 

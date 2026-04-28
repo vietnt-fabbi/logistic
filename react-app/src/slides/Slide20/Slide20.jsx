@@ -82,7 +82,7 @@ export default function Slide20() {
 
                 {/* Screenshot (right) */}
                 <ScreenshotFrame
-                    src="/images/slide-20 - Unit Report.jpg"
+                    src="./images/slide-20 - Unit Report.jpg"
                     alt="Unit Report"
                     title="Danh sách mã hàng nhiều đơn vị tính"
                     titleIcon="fas fa-table"

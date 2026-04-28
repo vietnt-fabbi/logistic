@@ -26,7 +26,7 @@ export default function Slide19() {
             <div className={styles.body}>
                 {/* Screenshot (left) */}
                 <ScreenshotFrame
-                    src="/images/slide-19 - HS Code Report.jpg"
+                    src="./images/slide-19 - HS Code Report.jpg"
                     alt="HS Code Report"
                     title="Danh sách mã hàng có nhiều HS Code"
                     titleIcon="fas fa-table"

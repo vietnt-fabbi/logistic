@@ -23,7 +23,7 @@ export default function Slide13() {
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
-                        <img src="/images/slide-13 - list actual bom.jpg" alt="List Actual BOM" />
+                        <img src="./images/slide-13 - list actual bom.jpg" alt="List Actual BOM" />
                     </div>
                 </div>
 

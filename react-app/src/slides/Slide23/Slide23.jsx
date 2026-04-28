@@ -29,7 +29,7 @@ export default function Slide23() {
                         <i className="fas fa-table" />So sánh NVL định mức vs thực tế
                     </div>
                     <div className={styles.screenshotFrame}>
-                        <img src="/images/slide-23 - Production Issue.jpg" alt="Production Issue" />
+                        <img src="./images/slide-23 - Production Issue.jpg" alt="Production Issue" />
                     </div>
                 </div>
 

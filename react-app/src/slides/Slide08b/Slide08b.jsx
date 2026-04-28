@@ -23,7 +23,7 @@ export default function Slide08b() {
                     <div className={styles.stepCard}>
                         <div className={`${styles.stepNum} ${styles.stepNumBlue}`}>1</div>
                         <div className={styles.stepCardImg}>
-                            <img src="/images/slide-8.2 - upload file.jpg" alt="Upload File" />
+                            <img src="./images/slide-8.2 - upload file.jpg" alt="Upload File" />
                         </div>
                         <div className={styles.stepCardBody}>
                             <div className={styles.stepCardTitle}>Upload file</div>
@@ -33,7 +33,7 @@ export default function Slide08b() {
                     <div className={styles.stepCard}>
                         <div className={`${styles.stepNum} ${styles.stepNumGreen}`}>2</div>
                         <div className={styles.stepCardImg}>
-                            <img src="/images/slide-8.3 - mapping fields.jpg" alt="Mapping Fields" />
+                            <img src="./images/slide-8.3 - mapping fields.jpg" alt="Mapping Fields" />
                         </div>
                         <div className={styles.stepCardBody}>
                             <div className={styles.stepCardTitle}>Mapping trường</div>
@@ -43,7 +43,7 @@ export default function Slide08b() {
                     <div className={styles.stepCard}>
                         <div className={`${styles.stepNum} ${styles.stepNumAmber}`}>3</div>
                         <div className={styles.stepCardImg}>
-                            <img src="/images/slide-8.4 - preview.jpg" alt="Preview Data" />
+                            <img src="./images/slide-8.4 - preview.jpg" alt="Preview Data" />
                         </div>
                         <div className={styles.stepCardBody}>
                             <div className={styles.stepCardTitle}>Preview & kiểm tra</div>
@@ -53,7 +53,7 @@ export default function Slide08b() {
                     <div className={styles.stepCard}>
                         <div className={`${styles.stepNum} ${styles.stepNumPurple}`}>4</div>
                         <div className={styles.stepCardImg}>
-                            <img src="/images/slide-8.5 - file history.jpg" alt="File History" />
+                            <img src="./images/slide-8.5 - file history.jpg" alt="File History" />
                         </div>
                         <div className={styles.stepCardBody}>
                             <div className={styles.stepCardTitle}>Lịch sử file</div>

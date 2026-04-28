@@ -24,7 +24,7 @@ export default function Slide06() {
                             </div>
                         </div>
                         <div className={styles.screenshotCardImgWrap}>
-                            <img src="/images/slide-6.jpg" alt="Dashboard Export Preview" className={styles.screenshotCardImg} />
+                            <img src="./images/slide-6.jpg" alt="Dashboard Export Preview" className={styles.screenshotCardImg} />
                         </div>
                     </div>
                     {/* Workflow */}

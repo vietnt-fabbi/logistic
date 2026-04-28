@@ -14,7 +14,7 @@ export default function Slide04() {
             />
 
             <div className={styles.body}>
-                <img src="/images/slide-4.jpg" alt="Dashboard Tổng quan" className={styles.screenshot} />
+                <img src="./images/slide-4.jpg" alt="Dashboard Tổng quan" className={styles.screenshot} />
             </div>
 
             <Footer text="Dashboard cung cấp tổng quan toàn bộ dữ liệu hải quan trong một màn hình" />

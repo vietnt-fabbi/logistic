@@ -18,7 +18,7 @@ export default function Slide10() {
                 {/* Left: Screenshot */}
                 <div className={styles.bodyLeft}>
                     <ScreenshotFrame
-                        src="/images/slide-10 - list erp bom.jpg"
+                        src="./images/slide-10 - list erp bom.jpg"
                         alt="List ERP BOM"
                         title="Màn hình quản lý ERP BOM"
                         titleIcon="fas fa-table"

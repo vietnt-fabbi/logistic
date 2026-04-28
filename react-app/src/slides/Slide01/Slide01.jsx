@@ -4,7 +4,7 @@ import styles from './Slide01.module.css';
 export default function Slide01() {
     return (
         <SlideLayout theme="dark">
-            <img className={styles.bgImage} src="/images/slide-1 - bg.jpg" alt="Container Port" />
+            <img className={styles.bgImage} src="./images/slide-1 - bg.jpg" alt="Container Port" />
             <div className={styles.overlay} />
 
             <div className={styles.content}>
@@ -13,7 +13,7 @@ export default function Slide01() {
                     {/* Left: Hero */}
                     <div className={styles.hero}>
                         <div className={styles.heroBadge}>
-                            <img className={styles.heroBadgeLogo} src="/images/ken-logo.png" alt="Ken Logistics" />
+                            <img className={styles.heroBadgeLogo} src="./images/ken-logo.png" alt="Ken Logistics" />
                             <div>
                                 <div className={styles.heroBadgeLabel}>LOGISTICS SOLUTION</div>
                                 <div className={styles.heroBadgeSublabel}>CUSTOMS CLEARANCE</div>

@@ -7,7 +7,7 @@ export default function Slide25() {
             {/* Header */}
             <div className={styles.slideHeader}>
                 <div className={styles.headerBrand}>
-                    <img className={styles.headerLogoImg} src="/images/ken-logo.png" alt="Ken Logistics" />
+                    <img className={styles.headerLogoImg} src="./images/ken-logo.png" alt="Ken Logistics" />
                     <div>
                         <div className={styles.headerLabel}>LOGISTICS SOLUTION</div>
                         <div className={styles.headerName}>CUSTOMS CLEARANCE</div>

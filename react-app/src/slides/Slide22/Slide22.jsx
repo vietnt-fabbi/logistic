@@ -29,7 +29,7 @@ export default function Slide22() {
                         <i className="fas fa-table" />Danh sách BOM bất thường
                     </div>
                     <div className={styles.screenshotFrame}>
-                        <img src="/images/slide-22 - BOM Report.jpg" alt="BOM Report" />
+                        <img src="./images/slide-22 - BOM Report.jpg" alt="BOM Report" />
                     </div>
                 </div>
 

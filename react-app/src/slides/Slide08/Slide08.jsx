@@ -15,7 +15,7 @@ export default function Slide08() {
 
             <div className={styles.body}>
                 <div className={styles.screenshotWrap}>
-                    <img src="/images/slide-8.1 - list erp summary.jpg" alt="ERP Summary" className={styles.screenshot} />
+                    <img src="./images/slide-8.1 - list erp summary.jpg" alt="ERP Summary" className={styles.screenshot} />
                 </div>
                 <div className={styles.benefitCallout}>
                     <div className={styles.benefitCalloutIcon}>

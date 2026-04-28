@@ -23,7 +23,7 @@ export default function Slide16() {
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
-                        <img src="/images/slide-16 - annual report 15a.jpg" alt="Annual Report 15A" />
+                        <img src="./images/slide-16 - annual report 15a.jpg" alt="Annual Report 15A" />
                     </div>
                 </div>
 
