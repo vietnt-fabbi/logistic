@@ -2,16 +2,18 @@ import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import ScreenshotFrame from '../../components/common/ScreenshotFrame';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide10.module.css';
 
 export default function Slide10() {
+    const t = useT();
     return (
         <SlideLayout theme="light">
             <Header
-                title="ERP BOM: Định mức kỹ thuật"
+                title={t('slide10.title')}
                 icon="fas fa-sitemap"
                 iconColor="#3b82f6"
-                subtitle="Upload và quản lý dữ liệu định mức sản xuất kỹ thuật từ ERP"
+                subtitle={t('slide10.subtitle')}
             />
 
             <div className={styles.body}>
@@ -20,12 +22,12 @@ export default function Slide10() {
                     <ScreenshotFrame
                         src="./images/slide-10 - list erp bom.jpg"
                         alt="List ERP BOM"
-                        title="Màn hình quản lý ERP BOM"
+                        title={t('slide10.screenshotTitle')}
                         titleIcon="fas fa-table"
                         titleIconColor="#3b82f6"
                         tags={[
-                            { label: '100 dòng', bg: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' },
-                            { label: 'Q1/2026', bg: 'rgba(16, 185, 129, 0.1)', color: '#10b981' },
+                            { label: t('slide10.tag1'), bg: 'rgba(59, 130, 246, 0.1)', color: '#3b82f6' },
+                            { label: t('slide10.tag2'), bg: 'rgba(16, 185, 129, 0.1)', color: '#10b981' },
                         ]}
                     />
                 </div>
@@ -36,27 +38,27 @@ export default function Slide10() {
                     <div className={styles.featureCard}>
                         <div className={styles.featureCardTitle}>
                             <i className="fas fa-list-check" />
-                            Thông tin BOM
+                            {t('slide10.featureCardTitle')}
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-check" />
-                            Model, Level, Sequence
+                            {t('slide10.featureItem1')}
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-check" />
-                            Child Item Code &amp; Specification
+                            {t('slide10.featureItem2')}
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-check" />
-                            Procurement Type, BOM Type
+                            {t('slide10.featureItem3')}
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-check" />
-                            Parent/Child Item Qty &amp; Unit
+                            {t('slide10.featureItem4')}
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-check" />
-                            Safety L/T, Loss Rate
+                            {t('slide10.featureItem5')}
                         </div>
                     </div>
 
@@ -66,7 +68,7 @@ export default function Slide10() {
                             <i className="fas fa-lightbulb" />
                         </div>
                         <div className={styles.benefitText}>
-                            <strong>Chuẩn hóa BOM kỹ thuật</strong> — làm cơ sở so sánh với BOM thực tế
+                            <strong>{t('slide10.benefitBold')}</strong> — {t('slide10.benefitText')}
                         </div>
                     </div>
 
@@ -74,17 +76,17 @@ export default function Slide10() {
                     <div className={styles.uploadInfo}>
                         <div className={styles.uploadInfoTitle}>
                             <i className="fas fa-cloud-upload-alt" />
-                            Upload &amp; Mapping
+                            {t('slide10.uploadTitle')}
                         </div>
                         <div className={styles.uploadStatus}>
                             <div className={styles.uploadStatusDot} />
-                            Cùng cơ chế mapping động
+                            {t('slide10.uploadStatus')}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="BOM kỹ thuật làm cơ sở so sánh với BOM thực tế từ module Actual BOM" />
+            <Footer text={t('slide10.footer')} />
         </SlideLayout>
     );
 }

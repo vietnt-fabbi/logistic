@@ -1,32 +1,34 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide03.module.css';
 
-const STEPS = [
-    { num: 'Bước 1', icon: 'fas fa-database', title: 'ERP Data', sub: 'Dữ liệu từ ERP', desc: 'Upload dữ liệu từ hệ thống ERP' },
-    { num: 'Bước 2', icon: 'fas fa-upload', title: 'Upload & Mapping', sub: 'Đồng bộ dữ liệu', desc: 'Mapping động, tự động nhận diện' },
-    { num: 'Bước 3', icon: 'fas fa-calculator', title: 'Tính toán BOM', sub: 'Định mức thực tế', desc: 'Tính toán BOM tự động' },
-    { num: 'Bước 4', icon: 'fas fa-file-contract', title: 'Báo cáo HQ', sub: 'Xuất báo cáo', desc: 'Báo cáo hải quan chuẩn' },
-    { num: 'Bước 5', icon: 'fas fa-exclamation-triangle', title: 'Phát hiện lỗi', sub: 'Kiểm tra bất thường', desc: 'Phát hiện bất thường tự động' },
-];
-
-const MODULES = [
-    { icon: 'fas fa-tachometer-alt', title: 'Dashboard', sub: 'Tổng quan', desc: 'Theo dõi tình trạng mapping ERP ↔ ECUS' },
-    { icon: 'fas fa-upload', title: 'Upload ERP', sub: 'Đồng bộ dữ liệu', desc: 'Upload file trực tiếp từ ERP' },
-    { icon: 'fas fa-calculator', title: 'Actual BOM', sub: 'Định mức thực tế', desc: 'Tính toán BOM tự động' },
-    { icon: 'fas fa-file-contract', title: 'Annual Report', sub: 'Báo cáo hải quan', desc: 'Xuất báo cáo theo mẫu HQ' },
-    { icon: 'fas fa-exclamation-triangle', title: 'Issue Report', sub: 'Phát hiện lỗi', desc: 'Phát hiện bất thường tự động' },
-];
-
 export default function Slide03() {
+    const t = useT();
+    const STEPS = [
+        { num: `${t('slide03.step')} 1`, icon: 'fas fa-database', title: t('slide03.step1Title'), sub: t('slide03.step1Sub'), desc: t('slide03.step1Desc') },
+        { num: `${t('slide03.step')} 2`, icon: 'fas fa-upload', title: t('slide03.step2Title'), sub: t('slide03.step2Sub'), desc: t('slide03.step2Desc') },
+        { num: `${t('slide03.step')} 3`, icon: 'fas fa-calculator', title: t('slide03.step3Title'), sub: t('slide03.step3Sub'), desc: t('slide03.step3Desc') },
+        { num: `${t('slide03.step')} 4`, icon: 'fas fa-file-contract', title: t('slide03.step4Title'), sub: t('slide03.step4Sub'), desc: t('slide03.step4Desc') },
+        { num: `${t('slide03.step')} 5`, icon: 'fas fa-exclamation-triangle', title: t('slide03.step5Title'), sub: t('slide03.step5Sub'), desc: t('slide03.step5Desc') },
+    ];
+
+    const MODULES = [
+        { icon: 'fas fa-tachometer-alt', title: t('slide03.mod1Title'), sub: t('slide03.mod1Sub'), desc: t('slide03.mod1Desc') },
+        { icon: 'fas fa-upload', title: t('slide03.mod2Title'), sub: t('slide03.mod2Sub'), desc: t('slide03.mod2Desc') },
+        { icon: 'fas fa-calculator', title: t('slide03.mod3Title'), sub: t('slide03.mod3Sub'), desc: t('slide03.mod3Desc') },
+        { icon: 'fas fa-file-contract', title: t('slide03.mod4Title'), sub: t('slide03.mod4Sub'), desc: t('slide03.mod4Desc') },
+        { icon: 'fas fa-exclamation-triangle', title: t('slide03.mod5Title'), sub: t('slide03.mod5Sub'), desc: t('slide03.mod5Desc') },
+    ];
+
     return (
         <SlideLayout>
             <Header
-                title="Giải pháp tổng quan"
+                title={t('slide03.title')}
                 icon="fas fa-sitemap"
                 iconColor="#3b82f6"
-                subtitle="Hệ thống quản lý quyết toán hải quan tự động - 5 module chính"
+                subtitle={t('slide03.subtitle')}
             />
 
             <div className={styles.body}>
@@ -75,7 +77,7 @@ export default function Slide03() {
                 </div>
             </div>
 
-            <Footer text="Hệ thống tự động hóa 5 module chính cho quản lý hải quan" />
+            <Footer text={t('slide03.footer')} />
         </SlideLayout>
     );
 }

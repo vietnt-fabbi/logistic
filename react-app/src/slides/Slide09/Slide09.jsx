@@ -2,16 +2,18 @@ import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import ScreenshotFrame from '../../components/common/ScreenshotFrame';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide09.module.css';
 
 export default function Slide09() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="ERP Daily: Dữ liệu chi tiết theo ngày"
+                title={t('slide09.title')}
                 icon="fas fa-calendar-day"
                 iconColor="#3b82f6"
-                subtitle="Xem chi tiết từng transaction theo ngày — phân loại theo RM, Semi, FG"
+                subtitle={t('slide09.subtitle')}
             />
 
             {/* Body */}
@@ -21,7 +23,7 @@ export default function Slide09() {
                     <ScreenshotFrame
                         src="./images/slide-9.1 - list erp daily.jpg"
                         alt="List ERP Daily"
-                        title="Danh sách ERP Daily — Tab RM-152"
+                        title={t('slide09.screenshotTitle')}
                         titleIcon="fas fa-list"
                         titleIconColor="#3b82f6"
                     />
@@ -30,7 +32,7 @@ export default function Slide09() {
                             <i className="fas fa-lightbulb" />
                         </div>
                         <div className={styles.benefitCalloutText}>
-                            <strong>Dữ liệu chi tiết theo ngày</strong> — phục vụ tính toán BOM thực tế chính xác, cùng cơ chế upload + mapping động như ERP Summary
+                            <strong>{t('slide09.calloutBold')}</strong> — {t('slide09.calloutText')}
                         </div>
                     </div>
                 </div>
@@ -42,7 +44,7 @@ export default function Slide09() {
                         <div className={styles.filterPanelHeader}>
                             <div className={styles.filterPanelTitle}>
                                 <i className={`fas fa-filter ${styles.iconAmber}`} />
-                                Bộ lọc nâng cao
+                                {t('slide09.filterPanelTitle')}
                             </div>
                         </div>
                         <div className={styles.filterPanelImg}>
@@ -54,24 +56,24 @@ export default function Slide09() {
                     <div className={styles.infoCard}>
                         <div className={styles.infoCardTitle}>
                             <i className={`fas fa-search ${styles.iconBlue} ${styles.iconMd}`} />
-                            Lọc theo 20+ trường dữ liệu
+                            {t('slide09.infoCard1Title')}
                         </div>
                         <div className={styles.infoCardList}>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Item, Item Description
+                                {t('slide09.infoCard1Item1')}
                             </div>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Storage Location, Movement Date
+                                {t('slide09.infoCard1Item2')}
                             </div>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Quantity, Expense, LOT No
+                                {t('slide09.infoCard1Item3')}
                             </div>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Transaction Type, P/O No, S/O No
+                                {t('slide09.infoCard1Item4')}
                             </div>
                         </div>
                     </div>
@@ -80,27 +82,27 @@ export default function Slide09() {
                     <div className={styles.infoCard}>
                         <div className={styles.infoCardTitle}>
                             <i className={`fas fa-layer-group ${styles.iconPurple} ${styles.iconMd}`} />
-                            Lợi ích phân tab
+                            {t('slide09.infoCard2Title')}
                         </div>
                         <div className={styles.infoCardList}>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Tách biệt NVL, bán TP, thành phẩm
+                                {t('slide09.infoCard2Item1')}
                             </div>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Upload riêng theo từng loại
+                                {t('slide09.infoCard2Item2')}
                             </div>
                             <div className={styles.infoCardItem}>
                                 <i className={`fas fa-check ${styles.iconGreen} ${styles.iconXs}`} />
-                                Đối soát chính xác từng nhóm
+                                {t('slide09.infoCard2Item3')}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Dữ liệu chi tiết theo ngày — phân loại RM-152 (NVL), Semi-154 (Bán TP), FG-155 (Thành phẩm)" />
+            <Footer text={t('slide09.footer')} />
         </SlideLayout>
     );
 }

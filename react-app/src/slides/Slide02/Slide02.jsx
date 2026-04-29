@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide02.module.css';
 
 export default function Slide02() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Bài toán của doanh nghiệp XNK"
+                title={t('slide02.title')}
                 icon="fas fa-exclamation-triangle"
                 iconColor="#ef4444"
-                subtitle="4 vấn đề cốt lõi đang ảnh hưởng đến hoạt động xuất nhập khẩu"
+                subtitle={t('slide02.subtitle')}
             />
 
             {/* Body */}
@@ -23,12 +25,12 @@ export default function Slide02() {
                         </div>
                         <div className={styles.painPointBody}>
                             <div className={styles.painPointTop}>
-                                <span className={styles.painPointName}>Đối soát ERP ↔ ECUS thủ công</span>
+                                <span className={styles.painPointName}>{t('slide02.pain1Name')}</span>
                                 <span className={`${styles.statusBadge} ${styles.statusBadgeError}`}>
-                                    <i className="fas fa-times-circle" /> Sai sót cao
+                                    <i className="fas fa-times-circle" /> {t('slide02.pain1Badge')}
                                 </span>
                             </div>
-                            <div className={styles.painPointDesc}>Tốn thời gian, dễ sai sót khi đối chiếu dữ liệu giữa hai hệ thống</div>
+                            <div className={styles.painPointDesc}>{t('slide02.pain1Desc')}</div>
                         </div>
                     </div>
 
@@ -38,12 +40,12 @@ export default function Slide02() {
                         </div>
                         <div className={styles.painPointBody}>
                             <div className={styles.painPointTop}>
-                                <span className={styles.painPointName}>Báo cáo quyết toán phức tạp</span>
+                                <span className={styles.painPointName}>{t('slide02.pain2Name')}</span>
                                 <span className={`${styles.statusBadge} ${styles.statusBadgeWarning}`}>
-                                    <i className="fas fa-clock" /> Rủi ro trễ hạn
+                                    <i className="fas fa-clock" /> {t('slide02.pain2Badge')}
                                 </span>
                             </div>
-                            <div className={styles.painPointDesc}>Lập báo cáo quyết toán hải quan phức tạp, rủi ro trễ hạn</div>
+                            <div className={styles.painPointDesc}>{t('slide02.pain2Desc')}</div>
                         </div>
                     </div>
 
@@ -53,12 +55,12 @@ export default function Slide02() {
                         </div>
                         <div className={styles.painPointBody}>
                             <div className={styles.painPointTop}>
-                                <span className={styles.painPointName}>Khó phát hiện bất thường</span>
+                                <span className={styles.painPointName}>{t('slide02.pain3Name')}</span>
                                 <span className={`${styles.statusBadge} ${styles.statusBadgeWarning}`}>
-                                    <i className="fas fa-exclamation-triangle" /> Rủi ro cao
+                                    <i className="fas fa-exclamation-triangle" /> {t('slide02.pain3Badge')}
                                 </span>
                             </div>
-                            <div className={styles.painPointDesc}>Khó phát hiện bất thường (HS Code, đơn giá, đơn vị tính) trước khi hải quan kiểm tra</div>
+                            <div className={styles.painPointDesc}>{t('slide02.pain3Desc')}</div>
                         </div>
                     </div>
 
@@ -68,12 +70,12 @@ export default function Slide02() {
                         </div>
                         <div className={styles.painPointBody}>
                             <div className={styles.painPointTop}>
-                                <span className={styles.painPointName}>Tính định mức không đồng bộ</span>
+                                <span className={styles.painPointName}>{t('slide02.pain4Name')}</span>
                                 <span className={`${styles.statusBadge} ${styles.statusBadgeWarning}`}>
-                                    <i className="fas fa-sync-alt" /> Không đồng bộ
+                                    <i className="fas fa-sync-alt" /> {t('slide02.pain4Badge')}
                                 </span>
                             </div>
-                            <div className={styles.painPointDesc}>Tính định mức thực tế không đồng bộ với dữ liệu sản xuất</div>
+                            <div className={styles.painPointDesc}>{t('slide02.pain4Desc')}</div>
                         </div>
                     </div>
                 </div>
@@ -81,7 +83,7 @@ export default function Slide02() {
                 {/* Right: Workflow diagram */}
                 <div className={styles.workflow}>
                     <div className={styles.workflowTitle}>
-                        <i className="fas fa-project-diagram" />Quy trình thủ công hiện tại
+                        <i className="fas fa-project-diagram" />{t('slide02.wfTitle')}
                     </div>
 
                     <div className={styles.workflowDiagram}>
@@ -90,14 +92,14 @@ export default function Slide02() {
                             <div className={`${styles.wfStepIcon} ${styles.wfStepIconBlue}`}><i className="fas fa-database" /></div>
                             <div>
                                 <div className={styles.wfStepLabel}>ERP Data</div>
-                                <div className={styles.wfStepSub}>Dữ liệu từ ERP</div>
+                                <div className={styles.wfStepSub}>{t('slide02.wfErpData')}</div>
                             </div>
                         </div>
                         <div className={`${styles.wfStep} ${styles.wfStepWarning}`}>
                             <div className={`${styles.wfStepIcon} ${styles.wfStepIconAmber}`}><i className="fas fa-file-excel" /></div>
                             <div>
                                 <div className={styles.wfStepLabel}>Excel</div>
-                                <div className={styles.wfStepSub}>Xử lý thủ công</div>
+                                <div className={styles.wfStepSub}>{t('slide02.wfExcel')}</div>
                             </div>
                         </div>
 
@@ -109,15 +111,15 @@ export default function Slide02() {
                         <div className={`${styles.wfStep} ${styles.wfStepDefault}`}>
                             <div className={`${styles.wfStepIcon} ${styles.wfStepIconBlue}`}><i className="fas fa-file-contract" /></div>
                             <div>
-                                <div className={styles.wfStepLabel}>Báo cáo</div>
-                                <div className={styles.wfStepSub}>Tạo báo cáo</div>
+                                <div className={styles.wfStepLabel}>{t('slide02.wfReport')}</div>
+                                <div className={styles.wfStepSub}>{t('slide02.wfReportSub')}</div>
                             </div>
                         </div>
                         <div className={`${styles.wfStep} ${styles.wfStepError}`}>
                             <div className={`${styles.wfStepIcon} ${styles.wfStepIconRed}`}><i className="fas fa-exclamation-triangle" /></div>
                             <div>
-                                <div className={styles.wfStepLabel}>Bất thường</div>
-                                <div className={styles.wfStepSub}>Phát hiện lỗi</div>
+                                <div className={styles.wfStepLabel}>{t('slide02.wfAnomaly')}</div>
+                                <div className={styles.wfStepSub}>{t('slide02.wfAnomalySub')}</div>
                             </div>
                         </div>
 
@@ -129,8 +131,8 @@ export default function Slide02() {
                         <div className={`${styles.wfStep} ${styles.wfStepSuccess}`}>
                             <div className={`${styles.wfStepIcon} ${styles.wfStepIconGreen}`}><i className="fas fa-check" /></div>
                             <div>
-                                <div className={styles.wfStepLabel}>Hoàn thành</div>
-                                <div className={styles.wfStepSub}>Xuất báo cáo</div>
+                                <div className={styles.wfStepLabel}>{t('slide02.wfDone')}</div>
+                                <div className={styles.wfStepSub}>{t('slide02.wfDoneSub')}</div>
                             </div>
                         </div>
                     </div>
@@ -138,21 +140,21 @@ export default function Slide02() {
                     <div className={styles.workflowLegend}>
                         <div className={styles.legendItem}>
                             <div className={`${styles.legendItemDot} ${styles.legendItemDotRed}`} />
-                            <span className={styles.legendItemText}>Điểm đau</span>
+                            <span className={styles.legendItemText}>{t('slide02.legendPain')}</span>
                         </div>
                         <div className={styles.legendItem}>
                             <div className={`${styles.legendItemDot} ${styles.legendItemDotAmber}`} />
-                            <span className={styles.legendItemText}>Cảnh báo</span>
+                            <span className={styles.legendItemText}>{t('slide02.legendWarn')}</span>
                         </div>
                         <div className={styles.legendItem}>
                             <div className={`${styles.legendItemDot} ${styles.legendItemDotBlue}`} />
-                            <span className={styles.legendItemText}>Bình thường</span>
+                            <span className={styles.legendItemText}>{t('slide02.legendNormal')}</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Các vấn đề này cần được giải quyết để tối ưu hóa quy trình hải quan" />
+            <Footer text={t('slide02.footer')} />
         </SlideLayout>
     );
 }

@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { slideList } from '../../slides';
+import { useT } from '../../i18n/useLanguage';
+import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import styles from './Presentation.module.css';
 
 export default function Presentation() {
@@ -9,6 +11,7 @@ export default function Presentation() {
     const containerRef = useRef(null);
     const hideTimerRef = useRef(null);
     const total = slideList.length;
+    const t = useT();
 
     const goTo = useCallback((index) => {
         if (index >= 0 && index < total) setCurrent(index);
@@ -69,6 +72,9 @@ export default function Presentation() {
             {/* Progress bar */}
             <div className={styles.progressBar} style={{ width: `${((current + 1) / total) * 100}%` }} />
 
+            {/* Language switcher (top-right) */}
+            <LanguageSwitcher />
+
             {/* Slide */}
             <div className={styles.slideWrapper}>
                 <div ref={containerRef} className={styles.slideContainer}>
@@ -111,7 +117,7 @@ export default function Presentation() {
                         onClick={() => { goTo(i); setShowList(false); }}
                     >
                         <div className={styles.thumbNum}>Slide {slide.id}</div>
-                        <div className={styles.thumbTitle}>{slide.title}</div>
+                        <div className={styles.thumbTitle}>{t(`slideList.s${slide.id}`, slide.title)}</div>
                     </div>
                 ))}
             </div>

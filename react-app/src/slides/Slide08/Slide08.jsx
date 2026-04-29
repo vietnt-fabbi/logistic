@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide08.module.css';
 
 export default function Slide08() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="ERP Summary: Dữ liệu tổng hợp"
+                title={t('slide08.title')}
                 icon="fas fa-table"
                 iconColor="#3b82f6"
-                subtitle="Quản lý dữ liệu nhập–xuất–tồn theo từng mã hàng"
+                subtitle={t('slide08.subtitle')}
             />
 
             <div className={styles.body}>
@@ -22,12 +24,12 @@ export default function Slide08() {
                         <i className="fas fa-lightbulb" />
                     </div>
                     <div className={styles.benefitCalloutText}>
-                        <strong>Không cần chỉnh file thủ công</strong> — Upload file ERP gốc, hệ thống tự mapping trường dữ liệu
+                        <strong>{t('slide08.calloutBold')}</strong> — {t('slide08.calloutText')}
                     </div>
                 </div>
             </div>
 
-            <Footer text="Quản lý dữ liệu nhập–xuất–tồn ERP theo từng mã hàng" />
+            <Footer text={t('slide08.footer')} />
         </SlideLayout>
     );
 }

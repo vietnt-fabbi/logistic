@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide06.module.css';
 
 export default function Slide06() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Dashboard: Export & Lưu trữ"
+                title={t('slide06.title')}
                 icon="fas fa-download"
                 iconColor="#3b82f6"
-                subtitle="Xuất file hình ảnh dashboard tiện lợi cho báo cáo và lưu hồ sơ"
+                subtitle={t('slide06.subtitle')}
             />
 
             <div className={styles.body}>
@@ -20,7 +22,7 @@ export default function Slide06() {
                         <div className={styles.screenshotCardHeader}>
                             <div className={styles.screenshotCardTitle}>
                                 <i className={`fas fa-chart-area ${styles.screenshotCardTitleIcon}`} />
-                                Dashboard — Tax & Fee Trends
+                                {t('slide06.screenshotTitle')}
                             </div>
                         </div>
                         <div className={styles.screenshotCardImgWrap}>
@@ -31,23 +33,23 @@ export default function Slide06() {
                     <div className={styles.workflow}>
                         <div className={styles.workflowStep}>
                             <div className={styles.workflowStepIcon}><i className="fas fa-tachometer-alt" /></div>
-                            <span className={styles.workflowStepLabel}>Dashboard</span>
+                            <span className={styles.workflowStepLabel}>{t('slide06.wfDashboard')}</span>
                         </div>
                         <i className={`fas fa-arrow-right ${styles.workflowArrow}`} />
                         <div className={styles.workflowStep}>
                             <div className={styles.workflowStepIcon}><i className="fas fa-image" /></div>
-                            <span className={styles.workflowStepLabel}>Export PNG</span>
+                            <span className={styles.workflowStepLabel}>{t('slide06.wfExport')}</span>
                         </div>
                         <i className={`fas fa-arrow-right ${styles.workflowArrow}`} />
                         <div className={styles.workflowTargets}>
                             <div className={styles.workflowTarget}>
-                                <i className={`fas fa-envelope ${styles.workflowTargetIcon}`} /> Email
+                                <i className={`fas fa-envelope ${styles.workflowTargetIcon}`} /> {t('slide06.wfEmail')}
                             </div>
                             <div className={styles.workflowTarget}>
-                                <i className={`fas fa-file-alt ${styles.workflowTargetIcon}`} /> Báo cáo
+                                <i className={`fas fa-file-alt ${styles.workflowTargetIcon}`} /> {t('slide06.wfReport')}
                             </div>
                             <div className={styles.workflowTarget}>
-                                <i className={`fas fa-archive ${styles.workflowTargetIcon}`} /> Lưu trữ
+                                <i className={`fas fa-archive ${styles.workflowTargetIcon}`} /> {t('slide06.wfArchive')}
                             </div>
                         </div>
                     </div>
@@ -59,25 +61,25 @@ export default function Slide06() {
                         <div className={styles.featureCardHeader}>
                             <div className={styles.featureCardIcon}><i className="fas fa-image" /></div>
                             <div>
-                                <div className={styles.featureCardTitle}>Export hình ảnh</div>
-                                <div className={styles.featureCardSubtitle}>Xuất PNG chất lượng cao</div>
+                                <div className={styles.featureCardTitle}>{t('slide06.feat1Title')}</div>
+                                <div className={styles.featureCardSubtitle}>{t('slide06.feat1Sub')}</div>
                             </div>
                         </div>
                         <div className={styles.featureCardText}>
-                            Hỗ trợ xuất dashboard dưới dạng hình ảnh PNG, tiện lợi cho việc gửi email, đính kèm báo cáo, hoặc lưu hồ sơ nội bộ.
+                            {t('slide06.feat1Text')}
                         </div>
                         <div className={styles.featureCardChecks}>
                             <div className={styles.featureCardCheck}>
                                 <i className={`fas fa-check-circle ${styles.featureCardCheckIcon}`} />
-                                Chất lượng cao, rõ nét
+                                {t('slide06.feat1Check1')}
                             </div>
                             <div className={styles.featureCardCheck}>
                                 <i className={`fas fa-check-circle ${styles.featureCardCheckIcon}`} />
-                                Một click xuất nhanh
+                                {t('slide06.feat1Check2')}
                             </div>
                             <div className={styles.featureCardCheck}>
                                 <i className={`fas fa-check-circle ${styles.featureCardCheckIcon}`} />
-                                Tự động đặt tên theo kỳ
+                                {t('slide06.feat1Check3')}
                             </div>
                         </div>
                     </div>
@@ -85,28 +87,28 @@ export default function Slide06() {
                     <div className={styles.featureCard}>
                         <div className={styles.usecaseTitle}>
                             <i className={`fas fa-th-large ${styles.usecaseTitleIcon}`} />
-                            Ứng dụng
+                            {t('slide06.usecaseTitle')}
                         </div>
                         <div className={styles.usecaseList}>
                             <div className={`${styles.usecaseItem} ${styles.usecaseItemBlue}`}>
                                 <div className={`${styles.usecaseItemIcon} ${styles.usecaseItemIconBlue}`}><i className="fas fa-envelope" /></div>
                                 <div>
-                                    <div className={styles.usecaseItemTitle}>Gửi email báo cáo</div>
-                                    <div className={styles.usecaseItemDesc}>Đính kèm ảnh dashboard nhanh chóng</div>
+                                    <div className={styles.usecaseItemTitle}>{t('slide06.usecase1Title')}</div>
+                                    <div className={styles.usecaseItemDesc}>{t('slide06.usecase1Desc')}</div>
                                 </div>
                             </div>
                             <div className={`${styles.usecaseItem} ${styles.usecaseItemGreen}`}>
                                 <div className={`${styles.usecaseItemIcon} ${styles.usecaseItemIconGreen}`}><i className="fas fa-desktop" /></div>
                                 <div>
-                                    <div className={styles.usecaseItemTitle}>Trình chiếu nội bộ</div>
-                                    <div className={styles.usecaseItemDesc}>Chèn vào slide PowerPoint</div>
+                                    <div className={styles.usecaseItemTitle}>{t('slide06.usecase2Title')}</div>
+                                    <div className={styles.usecaseItemDesc}>{t('slide06.usecase2Desc')}</div>
                                 </div>
                             </div>
                             <div className={`${styles.usecaseItem} ${styles.usecaseItemPurple}`}>
                                 <div className={`${styles.usecaseItemIcon} ${styles.usecaseItemIconPurple}`}><i className="fas fa-folder-open" /></div>
                                 <div>
-                                    <div className={styles.usecaseItemTitle}>Lưu hồ sơ</div>
-                                    <div className={styles.usecaseItemDesc}>Lưu trữ theo kỳ báo cáo</div>
+                                    <div className={styles.usecaseItemTitle}>{t('slide06.usecase3Title')}</div>
+                                    <div className={styles.usecaseItemDesc}>{t('slide06.usecase3Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +116,7 @@ export default function Slide06() {
                 </div>
             </div>
 
-            <Footer text="Hỗ trợ xuất file hình ảnh dashboard tiện lợi cho báo cáo nội bộ và lưu hồ sơ" />
+            <Footer text={t('slide06.footer')} />
         </SlideLayout>
     );
 }

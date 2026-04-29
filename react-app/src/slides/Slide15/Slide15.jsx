@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide15.module.css';
 
 export default function Slide15() {
+    const t = useT();
     return (
         <SlideLayout theme="light">
             <Header
-                title="Annual Report 15: Quyết toán nguyên vật liệu"
+                title={t('slide15.title')}
                 icon="fas fa-boxes"
                 iconColor="#3b82f6"
-                subtitle="Báo cáo tổng hợp nhập–xuất–tồn nguyên vật liệu theo kỳ"
+                subtitle={t('slide15.subtitle')}
             />
 
             <div className={styles.body}>
@@ -19,7 +21,7 @@ export default function Slide15() {
                     <div className={styles.tablePanelHeader}>
                         <div className={styles.tablePanelTitle}>
                             <i className="fas fa-table" />
-                            Báo cáo mẫu 15 — Nguyên vật liệu
+                            {t('slide15.tableTitle')}
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
@@ -32,7 +34,7 @@ export default function Slide15() {
                     <div className={styles.sidebarCard}>
                         <div className={styles.sidebarCardTitle}>
                             <i className="fas fa-bolt" />
-                            Tính năng chính
+                            {t('slide15.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -40,8 +42,8 @@ export default function Slide15() {
                                     <i className="fas fa-file-export" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xuất báo cáo chuẩn hải quan</div>
-                                    <div className={styles.featureDesc}>Đúng biểu mẫu/format quy định của cơ quan hải quan, sẵn sàng nộp</div>
+                                    <div className={styles.featureTitle}>{t('slide15.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide15.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -49,8 +51,8 @@ export default function Slide15() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lựa chọn kỳ theo dõi</div>
-                                    <div className={styles.featureDesc}>Tuỳ chọn theo tháng / quý / năm tài chính cần báo cáo</div>
+                                    <div className={styles.featureTitle}>{t('slide15.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide15.feat2Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +60,7 @@ export default function Slide15() {
                 </div>
             </div>
 
-            <Footer text="Báo cáo mẫu 15 — Quyết toán nguyên vật liệu nhập–xuất–tồn theo kỳ" />
+            <Footer text={t('slide15.footer')} />
         </SlideLayout>
     );
 }

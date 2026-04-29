@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide11.module.css';
 
 export default function Slide11() {
+    const t = useT();
     return (
         <SlideLayout theme="light">
             <Header
-                title="Mapping động: Điểm khác biệt"
+                title={t('slide11.title')}
                 icon="fas fa-magic"
                 iconColor="#3b82f6"
-                subtitle="Không yêu cầu khách hàng thay đổi format file ERP"
+                subtitle={t('slide11.subtitle')}
             />
 
             {/* 3 USP Cards */}
@@ -20,8 +22,8 @@ export default function Slide11() {
                         <i className="fas fa-file-excel" />
                     </div>
                     <div>
-                        <div className={styles.uspTitle}>Không thay đổi format</div>
-                        <div className={styles.uspDesc}>Hệ thống tự thích ứng với cấu trúc cột dữ liệu của khách hàng</div>
+                        <div className={styles.uspTitle}>{t('slide11.usp1Title')}</div>
+                        <div className={styles.uspDesc}>{t('slide11.usp1Desc')}</div>
                     </div>
                 </div>
                 <div className={styles.uspCard}>
@@ -29,8 +31,8 @@ export default function Slide11() {
                         <i className="fas fa-cog" />
                     </div>
                     <div>
-                        <div className={styles.uspTitle}>Cấu hình 1 lần</div>
-                        <div className={styles.uspDesc}>Tái sử dụng cấu hình mapping cho tất cả các lần upload sau</div>
+                        <div className={styles.uspTitle}>{t('slide11.usp2Title')}</div>
+                        <div className={styles.uspDesc}>{t('slide11.usp2Desc')}</div>
                     </div>
                 </div>
                 <div className={styles.uspCard}>
@@ -38,8 +40,8 @@ export default function Slide11() {
                         <i className="fas fa-arrows-alt-h" />
                     </div>
                     <div>
-                        <div className={styles.uspTitle}>Mapping trực quan</div>
-                        <div className={styles.uspDesc}>Giao diện drag-drop mapping cột trực quan, dễ sử dụng</div>
+                        <div className={styles.uspTitle}>{t('slide11.usp3Title')}</div>
+                        <div className={styles.uspDesc}>{t('slide11.usp3Desc')}</div>
                     </div>
                 </div>
             </div>
@@ -50,28 +52,28 @@ export default function Slide11() {
                 <div className={`${styles.panel} ${styles.panelBefore}`}>
                     <div className={styles.panelHeader}>
                         <div className={`${styles.panelBadge} ${styles.panelBadgeBefore}`}>
-                            <i className="fas fa-times" />TRƯỚC
+                            <i className="fas fa-times" />{t('slide11.beforeBadge')}
                         </div>
-                        <span className={styles.panelLabel}>Quy trình thủ công</span>
+                        <span className={styles.panelLabel}>{t('slide11.beforeLabel')}</span>
                     </div>
                     <div className={styles.panelBody}>
                         <div className={`${styles.flowItem} ${styles.flowItemRed}`}>
-                            <i className="fas fa-file-excel" />File ERP format A (.xlsx)
+                            <i className="fas fa-file-excel" />{t('slide11.beforeItem1')}
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemRed}`}>
-                            <i className="fas fa-file-alt" />File ERP format B (.xls)
+                            <i className="fas fa-file-alt" />{t('slide11.beforeItem2')}
                         </div>
                         <div className={`${styles.flowArrow} ${styles.flowArrowRed}`}>
                             <i className="fas fa-arrow-down" />
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemRed}`}>
-                            <i className="fas fa-user-edit" />Phải chỉnh sửa format mỗi lần
+                            <i className="fas fa-user-edit" />{t('slide11.beforeItem3')}
                         </div>
                         <div className={`${styles.flowArrow} ${styles.flowArrowRed}`}>
                             <i className="fas fa-arrow-down" />
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemRedStrong}`}>
-                            <i className="fas fa-exclamation-triangle" />Tốn thời gian, dễ sai sót
+                            <i className="fas fa-exclamation-triangle" />{t('slide11.beforeItem4')}
                         </div>
                     </div>
                 </div>
@@ -88,37 +90,37 @@ export default function Slide11() {
                 <div className={`${styles.panel} ${styles.panelAfter}`}>
                     <div className={styles.panelHeader}>
                         <div className={`${styles.panelBadge} ${styles.panelBadgeAfter}`}>
-                            <i className="fas fa-check" />SAU
+                            <i className="fas fa-check" />{t('slide11.afterBadge')}
                         </div>
-                        <span className={styles.panelLabel}>Mapping động tự động</span>
+                        <span className={styles.panelLabel}>{t('slide11.afterLabel')}</span>
                     </div>
                     <div className={styles.panelBody}>
                         <div className={`${styles.flowItem} ${styles.flowItemGreen}`}>
-                            <i className="fas fa-file-excel" />Bất kỳ format nào (.xlsx, .xls)
+                            <i className="fas fa-file-excel" />{t('slide11.afterItem1')}
                         </div>
                         <div className={`${styles.flowArrow} ${styles.flowArrowGreen}`}>
                             <i className="fas fa-arrow-down" />
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemGreenStrong}`}>
-                            <i className="fas fa-magic" />Mapping tự động nhận diện cột
+                            <i className="fas fa-magic" />{t('slide11.afterItem2')}
                         </div>
                         <div className={`${styles.flowArrow} ${styles.flowArrowGreen}`}>
                             <i className="fas fa-arrow-down" />
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemBlueStrong}`}>
-                            <i className="fas fa-database" />Dữ liệu chuẩn hóa vào hệ thống
+                            <i className="fas fa-database" />{t('slide11.afterItem3')}
                         </div>
                         <div className={`${styles.flowArrow} ${styles.flowArrowGreen}`}>
                             <i className="fas fa-arrow-down" />
                         </div>
                         <div className={`${styles.flowItem} ${styles.flowItemGreen}`}>
-                            <i className="fas fa-redo" />Tái sử dụng cấu hình mọi lần sau
+                            <i className="fas fa-redo" />{t('slide11.afterItem4')}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Mapping động là điểm khác biệt cốt lõi — không yêu cầu thay đổi format file ERP" />
+            <Footer text={t('slide11.footer')} />
         </SlideLayout>
     );
 }

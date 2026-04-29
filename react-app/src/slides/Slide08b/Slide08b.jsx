@@ -1,22 +1,24 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide08b.module.css';
 
 export default function Slide08b() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="ERP Summary: Quy trình Upload & Mapping"
+                title={t('slide08b.title')}
                 icon="fas fa-project-diagram"
                 iconColor="#3b82f6"
-                subtitle="4 bước: Upload → Mapping → Preview → Lưu trữ lịch sử theo kỳ"
+                subtitle={t('slide08b.subtitle')}
             />
 
             <div className={styles.body}>
                 <div className={styles.flowLabel}>
                     <i className={`fas fa-project-diagram ${styles.iconBlue} ${styles.iconSm}`} />
-                    <span className={styles.flowLabelText}>Quy trình Upload & Mapping</span>
+                    <span className={styles.flowLabelText}>{t('slide08b.flowLabel')}</span>
                 </div>
 
                 <div className={styles.stepsGrid}>
@@ -26,8 +28,8 @@ export default function Slide08b() {
                             <img src="./images/slide-8.2 - upload file.jpg" alt="Upload File" />
                         </div>
                         <div className={styles.stepCardBody}>
-                            <div className={styles.stepCardTitle}>Upload file</div>
-                            <div className={styles.stepCardDesc}>Kéo thả hoặc chọn file XLS/XLSX</div>
+                            <div className={styles.stepCardTitle}>{t('slide08b.step1Title')}</div>
+                            <div className={styles.stepCardDesc}>{t('slide08b.step1Desc')}</div>
                         </div>
                     </div>
                     <div className={styles.stepCard}>
@@ -36,8 +38,8 @@ export default function Slide08b() {
                             <img src="./images/slide-8.3 - mapping fields.jpg" alt="Mapping Fields" />
                         </div>
                         <div className={styles.stepCardBody}>
-                            <div className={styles.stepCardTitle}>Mapping trường</div>
-                            <div className={styles.stepCardDesc}>Map cột file ↔ cột hệ thống</div>
+                            <div className={styles.stepCardTitle}>{t('slide08b.step2Title')}</div>
+                            <div className={styles.stepCardDesc}>{t('slide08b.step2Desc')}</div>
                         </div>
                     </div>
                     <div className={styles.stepCard}>
@@ -46,8 +48,8 @@ export default function Slide08b() {
                             <img src="./images/slide-8.4 - preview.jpg" alt="Preview Data" />
                         </div>
                         <div className={styles.stepCardBody}>
-                            <div className={styles.stepCardTitle}>Preview & kiểm tra</div>
-                            <div className={styles.stepCardDesc}>Xem trước dữ liệu, phát hiện lỗi</div>
+                            <div className={styles.stepCardTitle}>{t('slide08b.step3Title')}</div>
+                            <div className={styles.stepCardDesc}>{t('slide08b.step3Desc')}</div>
                         </div>
                     </div>
                     <div className={styles.stepCard}>
@@ -56,8 +58,8 @@ export default function Slide08b() {
                             <img src="./images/slide-8.5 - file history.jpg" alt="File History" />
                         </div>
                         <div className={styles.stepCardBody}>
-                            <div className={styles.stepCardTitle}>Lịch sử file</div>
-                            <div className={styles.stepCardDesc}>Truy vết file upload theo kỳ</div>
+                            <div className={styles.stepCardTitle}>{t('slide08b.step4Title')}</div>
+                            <div className={styles.stepCardDesc}>{t('slide08b.step4Desc')}</div>
                         </div>
                     </div>
                 </div>
@@ -67,33 +69,33 @@ export default function Slide08b() {
                         <div className={`${styles.flowBarCircle} ${styles.bgBlue}`}>
                             <span className={styles.flowBarCircleText}>1</span>
                         </div>
-                        <span className={styles.flowBarLabel}>Upload</span>
+                        <span className={styles.flowBarLabel}>{t('slide08b.bar1')}</span>
                     </div>
                     <i className={`fas fa-chevron-right ${styles.flowBarArrow}`} />
                     <div className={styles.flowBarStep}>
                         <div className={`${styles.flowBarCircle} ${styles.bgGreen}`}>
                             <span className={styles.flowBarCircleText}>2</span>
                         </div>
-                        <span className={styles.flowBarLabel}>Mapping</span>
+                        <span className={styles.flowBarLabel}>{t('slide08b.bar2')}</span>
                     </div>
                     <i className={`fas fa-chevron-right ${styles.flowBarArrow}`} />
                     <div className={styles.flowBarStep}>
                         <div className={`${styles.flowBarCircle} ${styles.bgAmber}`}>
                             <span className={styles.flowBarCircleText}>3</span>
                         </div>
-                        <span className={styles.flowBarLabel}>Preview</span>
+                        <span className={styles.flowBarLabel}>{t('slide08b.bar3')}</span>
                     </div>
                     <i className={`fas fa-chevron-right ${styles.flowBarArrow}`} />
                     <div className={styles.flowBarStep}>
                         <div className={`${styles.flowBarCircle} ${styles.bgPurple}`}>
                             <span className={styles.flowBarCircleText}>4</span>
                         </div>
-                        <span className={styles.flowBarLabel}>History</span>
+                        <span className={styles.flowBarLabel}>{t('slide08b.bar4')}</span>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Upload file → Mapping động → Preview & kiểm tra → Lưu trữ lịch sử theo kỳ" />
+            <Footer text={t('slide08b.footer')} />
         </SlideLayout>
     );
 }

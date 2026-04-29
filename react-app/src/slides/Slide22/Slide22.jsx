@@ -1,23 +1,25 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide22.module.css';
 
 export default function Slide22() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="BOM Report"
+                title={t('slide22.title')}
                 icon="fas fa-sitemap"
                 iconColor="#3b82f6"
-                subtitle="Phát hiện bất thường trong dữ liệu định mức sản xuất"
+                subtitle={t('slide22.subtitle')}
             />
 
             {/* Risk callout */}
             <div className={styles.riskCallout}>
                 <div className={styles.riskCalloutIcon}><i className="fas fa-exclamation-triangle" /></div>
                 <div className={styles.riskCalloutText}>
-                    <strong>Rủi ro:</strong> BOM sai → quyết toán sai → phạt
+                    <strong>{t('slide22.riskBold')}</strong> {t('slide22.riskText')}
                 </div>
             </div>
 
@@ -26,7 +28,7 @@ export default function Slide22() {
                 {/* Table */}
                 <div className={`${styles.card} ${styles.panelTable}`}>
                     <div className={styles.cardTitle}>
-                        <i className="fas fa-table" />Danh sách BOM bất thường
+                        <i className="fas fa-table" />{t('slide22.tableTitle')}
                     </div>
                     <div className={styles.screenshotFrame}>
                         <img src="./images/slide-22 - BOM Report.jpg" alt="BOM Report" />
@@ -37,35 +39,35 @@ export default function Slide22() {
                 <div className={styles.panelSidebar}>
                     <div className={styles.card}>
                         <div className={styles.cardTitle}>
-                            <i className="fas fa-list-check" />Loại báo cáo
+                            <i className="fas fa-list-check" />{t('slide22.reportTypeTitle')}
                         </div>
                         <div className={styles.reportList}>
                             <div className={styles.reportItem}>
                                 <span className={`${styles.reportBadge} ${styles.reportBadgeFg}`}>FG</span>
-                                <span className={styles.reportLabel}>FG Lacking BOM</span>
+                                <span className={styles.reportLabel}>{t('slide22.report1')}</span>
                             </div>
                             <div className={styles.reportItem}>
                                 <span className={`${styles.reportBadge} ${styles.reportBadgeSemi}`}>Semi</span>
-                                <span className={styles.reportLabel}>Semi Lacking BOM</span>
+                                <span className={styles.reportLabel}>{t('slide22.report2')}</span>
                             </div>
                             <div className={styles.reportItem}>
                                 <span className={`${styles.reportBadge} ${styles.reportBadgeRm}`}>RM</span>
-                                <span className={styles.reportLabel}>RM Lacking BOM</span>
+                                <span className={styles.reportLabel}>{t('slide22.report3')}</span>
                             </div>
                             <div className={styles.reportItem}>
                                 <span className={`${styles.reportBadge} ${styles.reportBadgeWarn}`}>&lt;1</span>
-                                <span className={styles.reportLabel}>BOM &lt; 1 with Master unit</span>
+                                <span className={styles.reportLabel}>{t('slide22.report4')}</span>
                             </div>
                             <div className={styles.reportItem}>
                                 <span className={`${styles.reportBadge} ${styles.reportBadgeUnused}`}>ERP</span>
-                                <span className={styles.reportLabel}>Unused RM in ERP BOM</span>
+                                <span className={styles.reportLabel}>{t('slide22.report5')}</span>
                             </div>
                         </div>
                     </div>
 
                     <div className={styles.card}>
                         <div className={styles.cardTitle}>
-                            <i className="fas fa-bolt" />Tính năng
+                            <i className="fas fa-bolt" />{t('slide22.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -73,8 +75,8 @@ export default function Slide22() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lựa chọn kỳ báo cáo</div>
-                                    <div className={styles.featureDesc}>Theo tháng / quý / năm tài chính</div>
+                                    <div className={styles.featureTitle}>{t('slide22.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide22.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -82,8 +84,8 @@ export default function Slide22() {
                                     <i className="fas fa-file-excel" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xuất file Excel</div>
-                                    <div className={styles.featureDesc}>Tải về toàn bộ kết quả kiểm tra</div>
+                                    <div className={styles.featureTitle}>{t('slide22.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide22.feat2Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +93,7 @@ export default function Slide22() {
                 </div>
             </div>
 
-            <Footer text="Phát hiện bất thường trong định mức sản xuất — BOM sai → quyết toán sai" />
+            <Footer text={t('slide22.footer')} />
         </SlideLayout>
     );
 }

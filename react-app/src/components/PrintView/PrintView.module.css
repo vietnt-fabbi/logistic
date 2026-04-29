@@ -1,0 +1,24 @@
+@page {
+    size: 1280px 720px;
+    margin: 0;
+}
+
+.printRoot {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.printSlide {
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    position: relative;
+    page-break-after: always;
+    break-after: page;
+}
+
+.printSlide:last-child {
+    page-break-after: auto;
+    break-after: auto;
+}

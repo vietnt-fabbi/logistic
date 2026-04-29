@@ -2,23 +2,25 @@ import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import ScreenshotFrame from '../../components/common/ScreenshotFrame';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide20.module.css';
 
 export default function Slide20() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Unit Report"
+                title={t('slide20.title')}
                 icon="fas fa-ruler"
                 iconColor="#f59e0b"
-                subtitle="Phát hiện mã hàng khai báo với nhiều đơn vị tính khác nhau"
+                subtitle={t('slide20.subtitle')}
             />
 
             {/* Risk Callout */}
             <div className={styles.riskCallout}>
                 <div className={styles.riskIcon}><i className="fas fa-exclamation-triangle" /></div>
                 <div className={styles.riskText}>
-                    <strong className={styles.riskLabel}>Rủi ro:</strong> Không nhất quán đơn vị → sai lệch số liệu quyết toán
+                    <strong className={styles.riskLabel}>{t('slide20.riskLabel')}</strong> {t('slide20.riskText')}
                 </div>
             </div>
 
@@ -28,7 +30,7 @@ export default function Slide20() {
                 <div className={styles.sidebar}>
                     <div className={styles.sidebarCard}>
                         <div className={styles.sidebarCardTitle}>
-                            <i className="fas fa-bolt" style={{ color: '#f59e0b' }} />Tính năng chính
+                            <i className="fas fa-bolt" style={{ color: '#f59e0b' }} />{t('slide20.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -36,8 +38,8 @@ export default function Slide20() {
                                     <i className="fas fa-ruler" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Phát hiện đơn vị tính bất nhất</div>
-                                    <div className={styles.featureDesc}>Tìm các mã hàng được khai báo với nhiều đơn vị tính khác nhau trên ECUS</div>
+                                    <div className={styles.featureTitle}>{t('slide20.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide20.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -45,8 +47,8 @@ export default function Slide20() {
                                     <i className="fas fa-eye" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xem danh sách ECUS bất thường</div>
-                                    <div className={styles.featureDesc}>Tra cứu chi tiết các tờ khai có vấn đề về đơn vị tính</div>
+                                    <div className={styles.featureTitle}>{t('slide20.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide20.feat2Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -54,8 +56,8 @@ export default function Slide20() {
                                     <i className="fas fa-file-excel" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Export Excel</div>
-                                    <div className={styles.featureDesc}>Xuất danh sách bất thường để báo cáo & lưu trữ</div>
+                                    <div className={styles.featureTitle}>{t('slide20.feat3Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide20.feat3Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -63,8 +65,8 @@ export default function Slide20() {
                                     <i className="fas fa-signal" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo mức độ rủi ro</div>
-                                    <div className={styles.featureDesc}>Phân loại Cao / Trung bình / Thấp để ưu tiên xử lý</div>
+                                    <div className={styles.featureTitle}>{t('slide20.feat4Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide20.feat4Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -72,8 +74,8 @@ export default function Slide20() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo kỳ</div>
-                                    <div className={styles.featureDesc}>Chọn xem dữ liệu theo tháng / quý / năm tài chính</div>
+                                    <div className={styles.featureTitle}>{t('slide20.feat5Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide20.feat5Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -84,14 +86,14 @@ export default function Slide20() {
                 <ScreenshotFrame
                     src="./images/slide-20 - Unit Report.jpg"
                     alt="Unit Report"
-                    title="Danh sách mã hàng nhiều đơn vị tính"
+                    title={t('slide20.screenshotTitle')}
                     titleIcon="fas fa-table"
                     titleIconColor="#f59e0b"
                     flex={3}
                 />
             </div>
 
-            <Footer text="Phát hiện mã hàng khai báo với nhiều đơn vị tính — rủi ro sai lệch quyết toán" />
+            <Footer text={t('slide20.footer')} />
         </SlideLayout>
     );
 }

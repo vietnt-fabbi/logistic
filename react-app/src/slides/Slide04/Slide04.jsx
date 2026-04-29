@@ -1,23 +1,25 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide04.module.css';
 
 export default function Slide04() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Dashboard: Tổng quan"
+                title={t('slide04.title')}
                 icon="fas fa-tachometer-alt"
                 iconColor="#3b82f6"
-                subtitle="Nắm toàn bộ dữ liệu hải quan trong một màn hình"
+                subtitle={t('slide04.subtitle')}
             />
 
             <div className={styles.body}>
-                <img src="./images/slide-4.jpg" alt="Dashboard Tổng quan" className={styles.screenshot} />
+                <img src="./images/slide-4.jpg" alt={t('slide04.title')} className={styles.screenshot} />
             </div>
 
-            <Footer text="Dashboard cung cấp tổng quan toàn bộ dữ liệu hải quan trong một màn hình" />
+            <Footer text={t('slide04.footer')} />
         </SlideLayout>
     );
 }

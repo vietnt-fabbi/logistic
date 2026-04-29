@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide07.module.css';
 
 export default function Slide07() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Upload ERP: Tổng quan"
+                title={t('slide07.title')}
                 icon="fas fa-upload"
                 iconColor="#3b82f6"
-                subtitle="Đồng bộ dữ liệu ERP chỉ trong vài bước"
+                subtitle={t('slide07.subtitle')}
             />
 
             <div className={styles.body}>
@@ -20,22 +22,22 @@ export default function Slide07() {
                         <div className={`${styles.benefitCardIcon} ${styles.benefitCardIconBlue}`}>
                             <i className={`fas fa-cloud-upload-alt ${styles.iconBlue} ${styles.iconLg}`} />
                         </div>
-                        <div className={styles.benefitCardTitle}>Upload file trực tiếp</div>
-                        <div className={styles.benefitCardDesc}>Upload file trực tiếp từ hệ thống ERP khách hàng, hỗ trợ nhiều format (Excel: .xlsx, .xls)</div>
+                        <div className={styles.benefitCardTitle}>{t('slide07.ben1Title')}</div>
+                        <div className={styles.benefitCardDesc}>{t('slide07.ben1Desc')}</div>
                     </div>
                     <div className={styles.benefitCard}>
                         <div className={`${styles.benefitCardIcon} ${styles.benefitCardIconGreen}`}>
                             <i className={`fas fa-history ${styles.iconGreen} ${styles.iconLg}`} />
                         </div>
-                        <div className={styles.benefitCardTitle}>Quản lý lịch sử theo kỳ</div>
-                        <div className={styles.benefitCardDesc}>Quản lý lịch sử upload theo kỳ báo cáo — truy vết dễ dàng mọi thay đổi</div>
+                        <div className={styles.benefitCardTitle}>{t('slide07.ben2Title')}</div>
+                        <div className={styles.benefitCardDesc}>{t('slide07.ben2Desc')}</div>
                     </div>
                     <div className={styles.benefitCard}>
                         <div className={`${styles.benefitCardIcon} ${styles.benefitCardIconPurple}`}>
                             <i className={`fas fa-random ${styles.iconPurple} ${styles.iconLg}`} />
                         </div>
-                        <div className={styles.benefitCardTitle}>Mapping động linh hoạt</div>
-                        <div className={styles.benefitCardDesc}>Mapping động: linh hoạt với mọi format dữ liệu ERP, không cần chỉnh file</div>
+                        <div className={styles.benefitCardTitle}>{t('slide07.ben3Title')}</div>
+                        <div className={styles.benefitCardDesc}>{t('slide07.ben3Desc')}</div>
                     </div>
                 </div>
 
@@ -43,7 +45,7 @@ export default function Slide07() {
                 <div className={styles.flowPanel}>
                     <div className={styles.flowPanelTitle}>
                         <i className={`fas fa-project-diagram ${styles.iconBlue}`} />
-                        Quy trình Upload & Đồng bộ dữ liệu
+                        {t('slide07.flowTitle')}
                     </div>
                     <div className={styles.flowSteps}>
                         {/* Step 1 */}
@@ -52,8 +54,8 @@ export default function Slide07() {
                             <div className={`${styles.flowStepIcon} ${styles.flowStepIconBlue}`}>
                                 <i className={`fas fa-file-upload ${styles.iconBlue} ${styles.iconMd}`} />
                             </div>
-                            <div className={styles.flowStepTitle}>Upload</div>
-                            <div className={styles.flowStepDesc}>Chọn file từ ERP</div>
+                            <div className={styles.flowStepTitle}>{t('slide07.step1Title')}</div>
+                            <div className={styles.flowStepDesc}>{t('slide07.step1Desc')}</div>
                         </div>
                         {/* Arrow */}
                         <div className={styles.flowArrow}>
@@ -66,8 +68,8 @@ export default function Slide07() {
                             <div className={`${styles.flowStepIcon} ${styles.flowStepIconGreen}`}>
                                 <i className={`fas fa-arrows-alt-h ${styles.iconGreen} ${styles.iconMd}`} />
                             </div>
-                            <div className={styles.flowStepTitle}>Mapping</div>
-                            <div className={styles.flowStepDesc}>Mapping trường dữ liệu</div>
+                            <div className={styles.flowStepTitle}>{t('slide07.step2Title')}</div>
+                            <div className={styles.flowStepDesc}>{t('slide07.step2Desc')}</div>
                         </div>
                         {/* Arrow */}
                         <div className={styles.flowArrow}>
@@ -80,8 +82,8 @@ export default function Slide07() {
                             <div className={`${styles.flowStepIcon} ${styles.flowStepIconPurple}`}>
                                 <i className={`fas fa-check-circle ${styles.iconPurple} ${styles.iconMd}`} />
                             </div>
-                            <div className={styles.flowStepTitle}>Xác nhận</div>
-                            <div className={styles.flowStepDesc}>Kiểm tra & xác nhận</div>
+                            <div className={styles.flowStepTitle}>{t('slide07.step3Title')}</div>
+                            <div className={styles.flowStepDesc}>{t('slide07.step3Desc')}</div>
                         </div>
                         {/* Arrow */}
                         <div className={styles.flowArrow}>
@@ -94,14 +96,14 @@ export default function Slide07() {
                             <div className={`${styles.flowStepIcon} ${styles.flowStepIconAmber}`}>
                                 <i className={`fas fa-database ${styles.iconAmber} ${styles.iconMd}`} />
                             </div>
-                            <div className={styles.flowStepTitle}>Lưu trữ</div>
-                            <div className={styles.flowStepDesc}>Lưu vào hệ thống</div>
+                            <div className={styles.flowStepTitle}>{t('slide07.step4Title')}</div>
+                            <div className={styles.flowStepDesc}>{t('slide07.step4Desc')}</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Module Upload ERP hỗ trợ 3 loại dữ liệu: ERP Summary, ERP Daily, ERP BOM" />
+            <Footer text={t('slide07.footer')} />
         </SlideLayout>
     );
 }

@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide12.module.css';
 
 export default function Slide12() {
+    const t = useT();
     return (
         <SlideLayout theme="light">
             <Header
-                title="Actual BOM: Tổng quan"
+                title={t('slide12.title')}
                 icon="fas fa-calculator"
                 iconColor="#3b82f6"
-                subtitle="Tính toán định mức thực tế tự động từ dữ liệu sản xuất"
+                subtitle={t('slide12.subtitle')}
             />
 
             {/* Flow: ERP Daily -> Engine -> Actual BOM */}
@@ -19,27 +21,27 @@ export default function Slide12() {
                     <div className={`${styles.flowIcon} ${styles.flowIconBlue}`}>
                         <i className="fas fa-calendar-day" />
                     </div>
-                    <div className={styles.flowName}>ERP Daily</div>
-                    <div className={styles.flowDesc}>Dữ liệu giao dịch chi tiết theo ngày từ hệ thống ERP</div>
-                    <span className={`${styles.flowTag} ${styles.flowTagBlue}`}>Input</span>
+                    <div className={styles.flowName}>{t('slide12.flow1Name')}</div>
+                    <div className={styles.flowDesc}>{t('slide12.flow1Desc')}</div>
+                    <span className={`${styles.flowTag} ${styles.flowTagBlue}`}>{t('slide12.flow1Tag')}</span>
                 </div>
                 <div className={styles.flowArrow}><i className="fas fa-chevron-right" /></div>
                 <div className={`${styles.flowStep} ${styles.flowStepGreen} ${styles.flowStepEngine}`}>
                     <div className={`${styles.flowIcon} ${styles.flowIconGreen}`}>
                         <i className="fas fa-cogs" />
                     </div>
-                    <div className={styles.flowName}>Engine tính toán</div>
-                    <div className={styles.flowDesc}>Tự động tính toán BOM thực tế dựa trên dữ liệu sản xuất</div>
-                    <span className={`${styles.flowTag} ${styles.flowTagGreen}`}>Processing</span>
+                    <div className={styles.flowName}>{t('slide12.flow2Name')}</div>
+                    <div className={styles.flowDesc}>{t('slide12.flow2Desc')}</div>
+                    <span className={`${styles.flowTag} ${styles.flowTagGreen}`}>{t('slide12.flow2Tag')}</span>
                 </div>
                 <div className={styles.flowArrow}><i className="fas fa-chevron-right" /></div>
                 <div className={`${styles.flowStep} ${styles.flowStepPurple}`}>
                     <div className={`${styles.flowIcon} ${styles.flowIconPurple}`}>
                         <i className="fas fa-clipboard-check" />
                     </div>
-                    <div className={styles.flowName}>Actual BOM</div>
-                    <div className={styles.flowDesc}>Định mức thực tế đã tính toán, sẵn sàng cho báo cáo</div>
-                    <span className={`${styles.flowTag} ${styles.flowTagPurple}`}>Output</span>
+                    <div className={styles.flowName}>{t('slide12.flow3Name')}</div>
+                    <div className={styles.flowDesc}>{t('slide12.flow3Desc')}</div>
+                    <span className={`${styles.flowTag} ${styles.flowTagPurple}`}>{t('slide12.flow3Tag')}</span>
                 </div>
             </div>
 
@@ -49,16 +51,16 @@ export default function Slide12() {
                 <div className={styles.notifications}>
                     <div className={styles.sectionTitle}>
                         <i className={`fas fa-bell ${styles.iconYellow}`} />
-                        Thông báo tự động
+                        {t('slide12.notifSectionTitle')}
                     </div>
                     <div className={`${styles.notif} ${styles.notifSuccess}`}>
                         <div className={`${styles.notifIcon} ${styles.notifIconSuccess}`}>
                             <i className="fas fa-check-circle" />
                         </div>
                         <div>
-                            <div className={styles.notifTitle}>Tính toán hoàn thành</div>
-                            <div className={styles.notifDesc}>42 BOM đã được tính toán thành công — 0 lỗi</div>
-                            <div className={styles.notifMeta}>Vừa xong · Q1/2026</div>
+                            <div className={styles.notifTitle}>{t('slide12.notifSuccessTitle')}</div>
+                            <div className={styles.notifDesc}>{t('slide12.notifSuccessDesc')}</div>
+                            <div className={styles.notifMeta}>{t('slide12.notifSuccessMeta')}</div>
                         </div>
                     </div>
                     <div className={`${styles.notif} ${styles.notifWarning}`}>
@@ -66,9 +68,9 @@ export default function Slide12() {
                             <i className="fas fa-exclamation-triangle" />
                         </div>
                         <div>
-                            <div className={styles.notifTitle}>Phát hiện chênh lệch</div>
-                            <div className={styles.notifDesc}>3 BOM có chênh lệch &gt; 10% so với BOM kỹ thuật</div>
-                            <div className={styles.notifMeta}>Cần kiểm tra · Xem chi tiết</div>
+                            <div className={styles.notifTitle}>{t('slide12.notifWarnTitle')}</div>
+                            <div className={styles.notifDesc}>{t('slide12.notifWarnDesc')}</div>
+                            <div className={styles.notifMeta}>{t('slide12.notifWarnMeta')}</div>
                         </div>
                     </div>
                 </div>
@@ -80,8 +82,8 @@ export default function Slide12() {
                             <i className="fas fa-ban" />
                         </div>
                         <div>
-                            <div className={styles.benefitTitle}>Loại bỏ tính toán thủ công</div>
-                            <div className={styles.benefitDesc}>Không cần tính BOM trên Excel — hệ thống tự động xử lý</div>
+                            <div className={styles.benefitTitle}>{t('slide12.ben1Title')}</div>
+                            <div className={styles.benefitDesc}>{t('slide12.ben1Desc')}</div>
                         </div>
                     </div>
                     <div className={styles.benefit}>
@@ -89,8 +91,8 @@ export default function Slide12() {
                             <i className="fas fa-bullseye" />
                         </div>
                         <div>
-                            <div className={styles.benefitTitle}>Độ chính xác cao</div>
-                            <div className={styles.benefitDesc}>Đảm bảo chính xác, sẵn sàng cho báo cáo hải quan (mẫu 16)</div>
+                            <div className={styles.benefitTitle}>{t('slide12.ben2Title')}</div>
+                            <div className={styles.benefitDesc}>{t('slide12.ben2Desc')}</div>
                         </div>
                     </div>
                     <div className={styles.benefit}>
@@ -98,14 +100,14 @@ export default function Slide12() {
                             <i className="fas fa-link" />
                         </div>
                         <div>
-                            <div className={styles.benefitTitle}>Liên kết Annual Report</div>
-                            <div className={styles.benefitDesc}>Kết quả tính toán tự động liên kết với báo cáo mẫu 16</div>
+                            <div className={styles.benefitTitle}>{t('slide12.ben3Title')}</div>
+                            <div className={styles.benefitDesc}>{t('slide12.ben3Desc')}</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="Tính toán BOM thực tế tự động từ ERP Daily, thông báo khi hoàn thành" />
+            <Footer text={t('slide12.footer')} />
         </SlideLayout>
     );
 }

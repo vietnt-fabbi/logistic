@@ -1,16 +1,18 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide13.module.css';
 
 export default function Slide13() {
+    const t = useT();
     return (
         <SlideLayout theme="light">
             <Header
-                title="Actual BOM: So sánh Kỹ thuật vs Thực tế"
+                title={t('slide13.title')}
                 icon="fas fa-balance-scale"
                 iconColor="#3b82f6"
-                subtitle="Phát hiện chênh lệch bất thường giữa BOM kỹ thuật và BOM thực tế"
+                subtitle={t('slide13.subtitle')}
             />
 
             <div className={styles.body}>
@@ -19,7 +21,7 @@ export default function Slide13() {
                     <div className={styles.tableHeader}>
                         <div className={styles.tableTitle}>
                             <i className="fas fa-columns" />
-                            Bảng so sánh BOM
+                            {t('slide13.tableTitle')}
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
@@ -30,22 +32,22 @@ export default function Slide13() {
                 {/* Sidebar */}
                 <div className={styles.sidebar}>
                     <div className={styles.card}>
-                        <div className={styles.cardTitle}><i className="fas fa-star" style={{ color: '#f59e0b' }} />Tính năng nổi bật</div>
+                        <div className={styles.cardTitle}><i className="fas fa-star" style={{ color: '#f59e0b' }} />{t('slide13.cardTitle')}</div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-cubes" style={{ color: '#3b82f6' }} />
-                            <span>Đếm tổng số <strong>NVL</strong> trong BOM</span>
+                            <span dangerouslySetInnerHTML={{ __html: t('slide13.feat1') }} />
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-tags" style={{ color: '#3b82f6' }} />
-                            <span>Phân biệt: <strong>Khớp / Chênh lệch / Bất thường</strong></span>
+                            <span dangerouslySetInnerHTML={{ __html: t('slide13.feat2') }} />
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-percentage" style={{ color: '#3b82f6' }} />
-                            <span>Theo dõi <strong>tỷ lệ khớp</strong> khi có thay đổi</span>
+                            <span dangerouslySetInnerHTML={{ __html: t('slide13.feat3') }} />
                         </div>
                         <div className={styles.featureItem}>
                             <i className="fas fa-file-excel" style={{ color: '#3b82f6' }} />
-                            <span><strong>Export Excel</strong> dễ dàng</span>
+                            <span dangerouslySetInnerHTML={{ __html: t('slide13.feat4') }} />
                         </div>
                     </div>
 
@@ -54,13 +56,13 @@ export default function Slide13() {
                             <i className="fas fa-shield-alt" style={{ color: '#3b82f6' }} />
                         </div>
                         <div className={styles.benefitText}>
-                            Chủ động giải trình với hải quan khi có chênh lệch
+                            {t('slide13.benefitText')}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Footer text="So sánh BOM kỹ thuật (ERP BOM) với BOM thực tế (Actual BOM) — phát hiện chênh lệch tự động" />
+            <Footer text={t('slide13.footer')} />
         </SlideLayout>
     );
 }

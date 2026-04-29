@@ -2,23 +2,25 @@ import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
 import ScreenshotFrame from '../../components/common/ScreenshotFrame';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide19.module.css';
 
 export default function Slide19() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="HS Code Report"
+                title={t('slide19.title')}
                 icon="fas fa-barcode"
                 iconColor="#ef4444"
-                subtitle="Phát hiện mã hàng ECUS gắn với nhiều HS Code khác nhau"
+                subtitle={t('slide19.subtitle')}
             />
 
             {/* Risk Callout */}
             <div className={styles.riskCallout}>
                 <div className={styles.riskIcon}><i className="fas fa-exclamation-triangle" /></div>
                 <div className={styles.riskText}>
-                    <strong className={styles.riskLabel}>Rủi ro:</strong> Khai sai mã HS → sai thuế suất → bị truy thu thuế
+                    <strong className={styles.riskLabel}>{t('slide19.riskLabel')}</strong> {t('slide19.riskText')}
                 </div>
             </div>
 
@@ -28,7 +30,7 @@ export default function Slide19() {
                 <ScreenshotFrame
                     src="./images/slide-19 - HS Code Report.jpg"
                     alt="HS Code Report"
-                    title="Danh sách mã hàng có nhiều HS Code"
+                    title={t('slide19.screenshotTitle')}
                     titleIcon="fas fa-table"
                     titleIconColor="#ef4444"
                     flex={3}
@@ -38,7 +40,7 @@ export default function Slide19() {
                 <div className={styles.sidebar}>
                     <div className={styles.sidebarCard}>
                         <div className={styles.sidebarCardTitle}>
-                            <i className="fas fa-bolt" style={{ color: '#ef4444' }} />Tính năng chính
+                            <i className="fas fa-bolt" style={{ color: '#ef4444' }} />{t('slide19.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -46,8 +48,8 @@ export default function Slide19() {
                                     <i className="fas fa-barcode" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Phát hiện HS Code bất nhất</div>
-                                    <div className={styles.featureDesc}>Tìm các mã hàng được gắn với nhiều HS Code khác nhau trên ECUS</div>
+                                    <div className={styles.featureTitle}>{t('slide19.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide19.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -55,8 +57,8 @@ export default function Slide19() {
                                     <i className="fas fa-eye" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xem danh sách ECUS bất thường</div>
-                                    <div className={styles.featureDesc}>Tra cứu chi tiết các tờ khai có vấn đề về mã HS</div>
+                                    <div className={styles.featureTitle}>{t('slide19.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide19.feat2Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -64,8 +66,8 @@ export default function Slide19() {
                                     <i className="fas fa-file-excel" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Export Excel</div>
-                                    <div className={styles.featureDesc}>Xuất danh sách bất thường để báo cáo & lưu trữ</div>
+                                    <div className={styles.featureTitle}>{t('slide19.feat3Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide19.feat3Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -73,8 +75,8 @@ export default function Slide19() {
                                     <i className="fas fa-signal" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo mức độ rủi ro</div>
-                                    <div className={styles.featureDesc}>Phân loại Cao / Trung bình / Thấp để ưu tiên xử lý</div>
+                                    <div className={styles.featureTitle}>{t('slide19.feat4Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide19.feat4Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -82,8 +84,8 @@ export default function Slide19() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo kỳ</div>
-                                    <div className={styles.featureDesc}>Chọn xem dữ liệu theo tháng / quý / năm tài chính</div>
+                                    <div className={styles.featureTitle}>{t('slide19.feat5Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide19.feat5Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +93,7 @@ export default function Slide19() {
                 </div>
             </div>
 
-            <Footer text="Phát hiện mã hàng ECUS gắn với nhiều HS Code — rủi ro sai thuế suất" />
+            <Footer text={t('slide19.footer')} />
         </SlideLayout>
     );
 }

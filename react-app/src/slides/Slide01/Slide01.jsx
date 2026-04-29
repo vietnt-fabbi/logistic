@@ -1,7 +1,9 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide01.module.css';
 
 export default function Slide01() {
+    const t = useT();
     return (
         <SlideLayout theme="dark">
             <img className={styles.bgImage} src="./images/slide-1 - bg.jpg" alt="Container Port" />
@@ -15,33 +17,33 @@ export default function Slide01() {
                         <div className={styles.heroBadge}>
                             <img className={styles.heroBadgeLogo} src="./images/ken-logo.png" alt="Ken Logistics" />
                             <div>
-                                <div className={styles.heroBadgeLabel}>LOGISTICS SOLUTION</div>
-                                <div className={styles.heroBadgeSublabel}>CUSTOMS CLEARANCE</div>
+                                <div className={styles.heroBadgeLabel}>{t('slide01.brandLabel')}</div>
+                                <div className={styles.heroBadgeSublabel}>{t('slide01.brandSub')}</div>
                             </div>
                         </div>
 
                         <div className={styles.heroTitle}>
-                            <span className={styles.gradientText}>Sản Phẩm Logistics</span><br />
-                            <span className={styles.heroTitleSub}>Xuất Nhập Khẩu Hải Quan</span>
+                            <span className={styles.gradientText}>{t('slide01.heroTitle1')}</span><br />
+                            <span className={styles.heroTitleSub}>{t('slide01.heroTitle2')}</span>
                         </div>
 
                         <div className={styles.heroFeatures}>
-                            <i className="fas fa-check-circle" />Giải pháp quản lý quyết toán hải quan tự động<br />
-                            <i className="fas fa-check-circle" />Tối ưu hóa quy trình xuất nhập khẩu
+                            <i className="fas fa-check-circle" />{t('slide01.feature1')}<br />
+                            <i className="fas fa-check-circle" />{t('slide01.feature2')}
                         </div>
 
                         <div className={styles.heroKpis}>
                             <div className={styles.kpiCard}>
                                 <i className={`fas fa-robot ${styles.kpiCardIcon}`} />
                                 <div>
-                                    <div className={styles.kpiCardLabel}>Tự động hóa</div>
+                                    <div className={styles.kpiCardLabel}>{t('slide01.kpi1Label')}</div>
                                     <div className={styles.kpiCardValue}>100%</div>
                                 </div>
                             </div>
                             <div className={`${styles.kpiCard} ${styles.kpiCardGreen}`}>
                                 <i className={`fas fa-clock ${styles.kpiCardIcon}`} />
                                 <div>
-                                    <div className={styles.kpiCardLabel}>Tiết kiệm</div>
+                                    <div className={styles.kpiCardLabel}>{t('slide01.kpi2Label')}</div>
                                     <div className={styles.kpiCardValue}>80%</div>
                                 </div>
                             </div>
@@ -55,26 +57,26 @@ export default function Slide01() {
                                 <i className="fas fa-exclamation-triangle" />
                             </div>
                             <div>
-                                <div className={styles.painCardHeaderTitle}>Pain Points</div>
-                                <div className={styles.painCardHeaderSub}>4 vấn đề chính</div>
+                                <div className={styles.painCardHeaderTitle}>{t('slide01.painCardTitle')}</div>
+                                <div className={styles.painCardHeaderSub}>{t('slide01.painCardSub')}</div>
                             </div>
                         </div>
                         <div className={styles.painCardList}>
                             <div className={styles.painCardItem}>
                                 <div className={`${styles.painCardDot} ${styles.painCardDotRed}`} />
-                                <span className={styles.painCardText}>Đối soát ERP ↔ ECUS thủ công</span>
+                                <span className={styles.painCardText}>{t('slide01.pain1')}</span>
                             </div>
                             <div className={styles.painCardItem}>
                                 <div className={`${styles.painCardDot} ${styles.painCardDotOrange}`} />
-                                <span className={styles.painCardText}>Báo cáo quyết toán phức tạp</span>
+                                <span className={styles.painCardText}>{t('slide01.pain2')}</span>
                             </div>
                             <div className={styles.painCardItem}>
                                 <div className={`${styles.painCardDot} ${styles.painCardDotPurple}`} />
-                                <span className={styles.painCardText}>Khó phát hiện bất thường</span>
+                                <span className={styles.painCardText}>{t('slide01.pain3')}</span>
                             </div>
                             <div className={styles.painCardItem}>
                                 <div className={`${styles.painCardDot} ${styles.painCardDotBlue}`} />
-                                <span className={styles.painCardText}>Tính BOM không đồng bộ</span>
+                                <span className={styles.painCardText}>{t('slide01.pain4')}</span>
                             </div>
                         </div>
                     </div>
@@ -85,15 +87,15 @@ export default function Slide01() {
                     <div className={styles.stats}>
                         <div className={styles.statsItem}>
                             <div className={styles.statsValue}>500+</div>
-                            <div className={styles.statsLabel}>Doanh nghiệp</div>
+                            <div className={styles.statsLabel}>{t('slide01.statBusinesses')}</div>
                         </div>
                         <div className={styles.statsItem}>
                             <div className={styles.statsValue}>99.9%</div>
-                            <div className={styles.statsLabel}>Độ chính xác</div>
+                            <div className={styles.statsLabel}>{t('slide01.statAccuracy')}</div>
                         </div>
                         <div className={styles.statsItem}>
                             <div className={styles.statsValue}>24/7</div>
-                            <div className={styles.statsLabel}>Hỗ trợ</div>
+                            <div className={styles.statsLabel}>{t('slide01.statSupport')}</div>
                         </div>
                     </div>
                     <div className={styles.meta}>

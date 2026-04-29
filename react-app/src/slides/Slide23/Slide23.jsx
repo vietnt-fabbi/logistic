@@ -1,23 +1,25 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide23.module.css';
 
 export default function Slide23() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Production Issue"
+                title={t('slide23.title')}
                 icon="fas fa-industry"
                 iconColor="#ea580c"
-                subtitle="So sánh NVL theo định mức vs NVL thực tế đưa vào sản xuất"
+                subtitle={t('slide23.subtitle')}
             />
 
             {/* Risk callout */}
             <div className={styles.riskCallout}>
                 <div className={styles.riskCalloutIcon}><i className="fas fa-exclamation-triangle" /></div>
                 <div className={styles.riskCalloutText}>
-                    <strong>Rủi ro:</strong> Chênh lệch lớn → hải quan yêu cầu giải trình
+                    <strong>{t('slide23.riskBold')}</strong> {t('slide23.riskText')}
                 </div>
             </div>
 
@@ -26,7 +28,7 @@ export default function Slide23() {
                 {/* Table */}
                 <div className={`${styles.card} ${styles.panelTable}`}>
                     <div className={styles.cardTitle}>
-                        <i className="fas fa-table" />So sánh NVL định mức vs thực tế
+                        <i className="fas fa-table" />{t('slide23.tableTitle')}
                     </div>
                     <div className={styles.screenshotFrame}>
                         <img src="./images/slide-23 - Production Issue.jpg" alt="Production Issue" />
@@ -37,7 +39,7 @@ export default function Slide23() {
                 <div className={styles.panelSidebar}>
                     <div className={styles.card}>
                         <div className={styles.cardTitle}>
-                            <i className="fas fa-bolt" />Tính năng chính
+                            <i className="fas fa-bolt" />{t('slide23.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -45,8 +47,8 @@ export default function Slide23() {
                                     <i className="fas fa-balance-scale" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Đối chiếu định mức vs thực tế</div>
-                                    <div className={styles.featureDesc}>Phát hiện chênh lệch NVL theo BOM và NVL đã đưa vào sản xuất</div>
+                                    <div className={styles.featureTitle}>{t('slide23.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide23.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -54,8 +56,8 @@ export default function Slide23() {
                                     <i className="fas fa-eye" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xem danh sách chênh lệch</div>
-                                    <div className={styles.featureDesc}>Tra cứu chi tiết theo từng mã NVL / lệnh sản xuất</div>
+                                    <div className={styles.featureTitle}>{t('slide23.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide23.feat2Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -63,8 +65,8 @@ export default function Slide23() {
                                     <i className="fas fa-file-excel" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Export Excel</div>
-                                    <div className={styles.featureDesc}>Xuất danh sách chênh lệch để báo cáo & lưu trữ</div>
+                                    <div className={styles.featureTitle}>{t('slide23.feat3Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide23.feat3Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -72,8 +74,8 @@ export default function Slide23() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo kỳ</div>
-                                    <div className={styles.featureDesc}>Chọn xem dữ liệu theo tháng / quý / năm tài chính</div>
+                                    <div className={styles.featureTitle}>{t('slide23.feat4Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide23.feat4Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +83,7 @@ export default function Slide23() {
                 </div>
             </div>
 
-            <Footer text="So sánh NVL theo định mức vs thực tế sản xuất — phát hiện thừa, thiếu, sai NVL" />
+            <Footer text={t('slide23.footer')} />
         </SlideLayout>
     );
 }

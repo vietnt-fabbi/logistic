@@ -1,23 +1,25 @@
 import SlideLayout from '../../components/SlideLayout/SlideLayout';
 import Header from '../../components/common/Header';
 import Footer from '../../components/common/Footer';
+import { useT } from '../../i18n/useLanguage';
 import styles from './Slide21.module.css';
 
 export default function Slide21() {
+    const t = useT();
     return (
         <SlideLayout>
             <Header
-                title="Unit Price Report"
+                title={t('slide21.title')}
                 icon="fas fa-dollar-sign"
                 iconColor="#9333ea"
-                subtitle="Phát hiện mã hàng khai báo với nhiều đơn giá khác nhau"
+                subtitle={t('slide21.subtitle')}
             />
 
             {/* Risk Callout */}
             <div className={styles.riskCallout}>
                 <div className={styles.riskCalloutIcon}><i className="fas fa-exclamation-triangle" /></div>
                 <div className={styles.riskCalloutText}>
-                    <strong className={styles.riskCalloutLabel}>Rủi ro:</strong> Chênh lệch giá → nghi vấn chuyển giá hoặc gian lận thuế
+                    <strong className={styles.riskCalloutLabel}>{t('slide21.riskLabel')}</strong> {t('slide21.riskText')}
                 </div>
             </div>
 
@@ -28,7 +30,7 @@ export default function Slide21() {
                     <div className={styles.tablePanelHeader}>
                         <div className={styles.tablePanelTitle}>
                             <i className="fas fa-table" style={{ color: '#9333ea' }} />
-                            Danh sách chênh lệch giá
+                            {t('slide21.tableTitle')}
                         </div>
                     </div>
                     <div className={styles.screenshotFrame}>
@@ -41,7 +43,7 @@ export default function Slide21() {
                     <div className={styles.chartPanel}>
                         <div className={styles.chartPanelTitle}>
                             <i className="fas fa-bolt" style={{ color: '#9333ea' }} />
-                            Tính năng chính
+                            {t('slide21.cardTitle')}
                         </div>
                         <div className={styles.featureList}>
                             <div className={styles.featureItem}>
@@ -49,8 +51,8 @@ export default function Slide21() {
                                     <i className="fas fa-search-dollar" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Phát hiện chênh lệch đơn giá</div>
-                                    <div className={styles.featureDesc}>Tìm các mã hàng được khai báo với nhiều đơn giá khác nhau trên ECUS</div>
+                                    <div className={styles.featureTitle}>{t('slide21.feat1Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide21.feat1Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -58,8 +60,8 @@ export default function Slide21() {
                                     <i className="fas fa-eye" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Xem danh sách ECUS bất thường</div>
-                                    <div className={styles.featureDesc}>Tra cứu chi tiết các tờ khai có vấn đề về mã giá</div>
+                                    <div className={styles.featureTitle}>{t('slide21.feat2Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide21.feat2Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -67,8 +69,8 @@ export default function Slide21() {
                                     <i className="fas fa-file-excel" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Export Excel</div>
-                                    <div className={styles.featureDesc}>Xuất danh sách chênh lệch đơn giá để báo cáo & lưu trữ</div>
+                                    <div className={styles.featureTitle}>{t('slide21.feat3Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide21.feat3Desc')}</div>
                                 </div>
                             </div>
                             <div className={styles.featureItem}>
@@ -76,8 +78,8 @@ export default function Slide21() {
                                     <i className="fas fa-calendar-alt" />
                                 </div>
                                 <div className={styles.featureText}>
-                                    <div className={styles.featureTitle}>Lọc theo kỳ</div>
-                                    <div className={styles.featureDesc}>Chọn xem dữ liệu theo tháng / quý / năm tài chính</div>
+                                    <div className={styles.featureTitle}>{t('slide21.feat4Title')}</div>
+                                    <div className={styles.featureDesc}>{t('slide21.feat4Desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +87,7 @@ export default function Slide21() {
                 </div>
             </div>
 
-            <Footer text="Phát hiện chênh lệch đơn giá — rủi ro nghi vấn chuyển giá" />
+            <Footer text={t('slide21.footer')} />
         </SlideLayout>
     );
 }
